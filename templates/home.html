@@ -546,7 +546,8 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
       <!-- Sub Boxes -->
       <div class="sub-boxes">
         <div class="box sub-box" data-bs-toggle="modal" data-bs-target="#registerModal">Jobs</div>
-        <div class="box sub-box" >Ausbildung</div>
+        <div class="box sub-box" data-bs-toggle="modal" data-bs-target="#ausbuildingModal">Ausbuilding</div>
+        
         
       </div>
     </div>
@@ -679,6 +680,50 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
         }
     }
 </style>
+<div class="modal fade" id="ausbuildingModal" tabindex="-1" aria-labelledby="ausbuildingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content" style="background: transparent;">
+          <div class="modal-body" style="backdrop-filter: blur(16px) saturate(180%);
+          -webkit-backdrop-filter: blur(16px) saturate(180%);
+          background-color: rgba(17, 25, 40, 0.75); border-radius: 20px;">
+              <!-- Form -->
+              <form class="form">
+                  <p class="title">Ausbuilding</p>
+
+                  <div class="flex">
+                      <label>
+                          <input class="input" type="text" placeholder="" required>
+                          <span>Name</span>
+                      </label>
+
+                      <label>
+                          <input class="input" type="text" placeholder="" required>
+                          <span>Qualification</span>
+                      </label>
+                  </div>
+
+                  <label>
+                      <input class="input" type="email" placeholder="" required>
+                      <span>Email</span>
+                  </label>
+
+                  <label>
+                      <input class="input" type="text" placeholder="" required>
+                      <span>Mobile</span>
+                  </label>
+
+                  <label>
+                      <input class="input" type="text" placeholder="" required>
+                      <span>Specialization</span>
+                  </label>
+
+                  <button type="submit" class="submit">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
   <div class="modal-dialog">
       <div class="modal-content" style="background:transparent;">
@@ -722,6 +767,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
       </div>
   </div>
 </div>
+
 
 
 
