@@ -1,0 +1,10 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg fill="#ffffff" width="179px" height="179px" viewBox="0 0 24 24" id="triple-down-sign" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color" stroke="#ffffff" stroke-width="0.21600000000000003">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"/>
+<g id="SVGRepo_iconCarrier">
+<path id="secondary" d="M12,16.5a1,1,0,0,1-.71-.29l-7-7A1,1,0,1,1,5.71,7.79L12,14.09l6.29-6.3a1,1,0,1,1,1.42,1.42l-7,7A1,1,0,0,1,12,16.5Z" style="fill: #ba2c2c;"/>
+<path id="primary" d="M12,22a1,1,0,0,1-.71-.29l-7-7a1,1,0,0,1,1.42-1.42L12,19.59l6.29-6.3a1,1,0,0,1,1.42,1.42l-7,7A1,1,0,0,1,12,22Zm.71-11.29,7-7a1,1,0,1,0-1.42-1.42L12,8.59,5.71,2.29A1,1,0,0,0,4.29,3.71l7,7a1,1,0,0,0,1.42,0Z" style="fill: #222020;"/>
+</g>
+</svg>
