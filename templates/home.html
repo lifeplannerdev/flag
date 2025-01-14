@@ -25,6 +25,7 @@
     }
     .navbar {
     background: transparent;
+    background:rgba(0, 0, 0, 0.363);
     
     padding: 0.5rem;
     display: flex;
@@ -234,9 +235,14 @@ function updateNavbarBackground() {
   const menuCheckbox = document.querySelector("#check-icon");
 
   if (menuCheckbox.checked || window.scrollY > 50) {
-      navbar.style.background = "black";
+    navbar.style.background = "rgba(0, 0, 0, 0.363)"; // Light transparent background for contrast
+    navbar.style.backdropFilter = "blur(10px)";
+    navbar.style.webkitBackdropFilter = "blur(10px)";
+    navbar.style.transition = "background 0.3s ease, backdrop-filter 0.3s ease"; // Smooth transition
   } else {
-      navbar.style.background = "transparent";
+    navbar.style.background = "transparent";
+    navbar.style.backdropFilter = "none";
+    navbar.style.webkitBackdropFilter = "none";
   }
 }
 
