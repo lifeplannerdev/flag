@@ -4,5 +4,6 @@ app_name='flagapp'
 
 urlpatterns = [
    path('',views.home,name='home'),
+   path('demo/',views.demo,name='demo'),
 
 ]

@@ -203,6 +203,40 @@
 
       }
     }
+
+    /* Initially hide the navbar menu off-screen to the right */
+.navbar-collapse {
+  position: absolute;
+  top: 0;
+  right: -100%; /* Menu starts off-screen on the right */
+  width: 90%;
+  margin-right: 20px;
+  margin-top: 70px;
+  border-radius: 20px;
+  border:1px solid red;
+  background-color: black;
+  transition: right 0.3s ease; /* Smooth sliding effect */
+}
+
+/* When the checkbox is checked (menu is toggled), slide the navbar into view */
+.check-icon:checked + .icon-menu + .navbar-collapse {
+  right: 0; /* Slide the menu in from the right */
+}
+
+/* Optional: Modify the .navbar-nav to adjust its alignment */
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px; /* Adjust for vertical spacing */
+}
+
+/* Optional: Adjust the nav links for better visibility */
+.navbar-nav .nav-link {
+  font-size: 1.25rem; /* Larger text for readability */
+  margin: 20px 0; /* Adjust spacing */
+}
+
   </style>
 </head>
 <body>
