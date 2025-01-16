@@ -158,21 +158,27 @@
 
     <div class="container-fluid">
         <!-- Sidebar -->
+        
+        
         <nav class="sidebar navbar navbar-expand-md" style="background-color: #f4f7fc;">
-          <button class="navbar-toggler mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation" style="border:none;">
+            <img src="/static/flagbrand.png" style="width:280px;height:70px;">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+        
           <div class="collapse navbar-collapse" id="sidebarMenu" >
+            
               <div class="sidebar p-3">
-                  <h2>Dashboard</h2>
+                <img src="/static/flagbrand.png" style="width:220px;height:60px;margin-bottom: 60px;margin-left: -20px;">
                   <ul class="nav flex-column">
-                      <li class="nav-item"><a class="nav-link" href="#videos">Recorded Classes</a></li>
+                    
+                      <li class="nav-item"><a class="nav-link" href="#videos">Courses</a></li>
                       <li class="nav-item"><a class="nav-link" href="#quizzes">Quizzes</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#forum">Webinars</a></li>
                       <li class="nav-item"><a class="nav-link" href="#assignments">Assignments</a></li>
                       <li class="nav-item"><a class="nav-link" href="#analytics">Performance</a></li>
                       <li class="nav-item"><a class="nav-link" href="#materials">Study Materials</a></li>
-                      <li class="nav-item"><a class="nav-link" href="#forum">Discussion Forum</a></li>
+                      
                   </ul>
               </div>
           </div>
@@ -181,11 +187,11 @@
 
         <!-- Main Content -->
         <div class="main-content">
-            <h1>Welcome back, Student!</h1>
+            <h1>Welcome back, Student_Name</h1>
 
             <!-- Recorded Classes Section -->
             <section id="videos">
-                <h2 class="section-title">Recorded Classes</h2>
+                <h2 class="section-title">Courses</h2>
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <div class="card">
@@ -209,19 +215,30 @@
             <section id="quizzes">
                 <h2 class="section-title">Quizzes</h2>
                 <ul class="list-group">
-                    <li class="list-group-item"><a href="#">Quiz 1: Math Basics</a></li>
-                    <li class="list-group-item"><a href="#">Quiz 2: Science Fundamentals</a></li>
-                    <li class="list-group-item"><a href="#">Quiz 3: History Overview</a></li>
+                    <li class="list-group-item"><a href="#">Quiz 1: Math Basics</a></li><br>
+                    <li class="list-group-item"><a href="#">Quiz 2: Science Fundamentals</a></li><br>
+                    <li class="list-group-item"><a href="#">Quiz 3: History Overview</a></li><br>
                 </ul>
             </section>
             <br><br>
-
+<!-- Discussion Forum Section -->
+<section id="forum">
+  <h2 class="section-title">Webinars</h2>
+  <div class="card">
+      <div class="card-body">
+          <p>Engage with peers and instructors in live webinars.</p>
+      </div>
+  </div>
+</section>
+<br><br>
             <!-- Assignments Section -->
             <section id="assignments">
                 <h2 class="section-title">Upload Assignments</h2>
+                <br>
                 <form>
                     <div class="mb-3">
                         <label for="assignmentUpload" class="form-label">Upload your assignment:</label>
+                        
                         <input class="form-control" type="file" id="assignmentUpload">
                     </div>
                     <button type="submit" class="btn btn-outline-secondary">Submit</button>
@@ -248,15 +265,7 @@
                 </div>
             </section>
 <br><br>
-            <!-- Discussion Forum Section -->
-            <section id="forum">
-                <h2 class="section-title">Discussion Forum</h2>
-                <div class="card">
-                    <div class="card-body">
-                        <p>Engage with peers and instructors in class discussions.</p>
-                    </div>
-                </div>
-            </section>
+            
         </div>
     </div>
 <br><br>
