@@ -1,1282 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FLAG - Educational Institute</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
- @font-face {
-            font-family: myfont;
-            src: url(/static/AgenorNeue-Regular.otf);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
         }
 
-    body {
-      background-color: rgb(2, 2, 2);
-      color: #f8f9fa;
-      font-family: myfont;
-      letter-spacing: 1px;
-      
-    }
-    .navbar {
-    background: transparent;
-    
-    
-    padding: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    transition: background 0.3s ease; /* Smooth transition for background color */
-}
+        /* Main Container */
+        .container-fluid {
+            display: flex;
+            height: 100vh;
+            flex-direction: row;
+            padding-top: 20px;
+        }
 
-
-        .navbar .nav-link {
-            color: #ffffff;
-            font-weight: 500;
-            margin:10px;
+        /* Sidebar */
+        .sidebar {
+            background-color: #ffffff;
+            width: 240px;
+            border-radius: 15px;
+            
+            padding: 20px;
+           
+            top: 20px;
             
         }
 
-        .navbar .nav-link:hover {
-            color: #ff4757;
-        }
-
-        .navbar-toggler {
-            border-color: rgba(255, 255, 255, 0.1);
+        .sidebar h2 {
+            font-size: 1.5rem;
+            color: #4f8fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin-right: 40px;
             
             
-        
-    
         }
 
-        .navbar-brand {
-            font-weight: 500;
-            color: #ffffff;
+        .nav-link {
+            color: #333;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            text-transform: capitalize;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #4f8fff;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            margin-left: 20px;
+            overflow-y: auto;
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4f8fff;
+        }
+
+        /* Cards */
+        .card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 30px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* Buttons */
+        .btn-outline-secondary {
+            padding: 8px 20px;
+            border-radius: 30px;
+            border-color: #4f8fff;
+            color: #4f8fff;
+            background-color: transparent;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #4f8fff;
+            border-color: #4f8fff;
+            color: white;
+        }
+
+        /* Form Elements */
+        .form-label {
+            color: #333;
+        }
+
+        .form-control {
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container-fluid {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
             
-        }
-        
 
-.icon-menu {
-  --gap: 5px;
-  --height-bar: 2.5px;
-  --pos-y-bar-one: 0;
-  --pos-y-bar-three: 0;
-  --scale-bar: 1;
-  --rotate-bar-one: 0;
-  --rotate-bar-three: 0;
-  width: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap);
-  cursor: pointer;
-  position: relative;
-  margin-top:5px;
-  margin-right: 10px;
-  display:none;
-}
-@media (max-width: 767px) {
-            .icon-menu {
-                display: flex; 
+            .main-content {
+                padding: 20px;
+                margin-left: 0;
             }
         }
-       
-.bar {
-  position: relative;
-  height: 3.2px;
-  width: 100%;
-  border-radius: .5rem;
-  background-color: #d6d6d6;
-}
-
-.bar--1 {
-  top: var(--pos-y-bar-one);
-  transform: rotate(var(--rotate-bar-one));
-  transition: top 200ms 100ms, transform 100ms;
-}
-
-.bar--2 {
-  transform: scaleX(var(--scale-bar));
-  transition: transform 150ms 100ms;
-}
-
-.bar--3 {
-  bottom: var(--pos-y-bar-three);
-  transform: rotate(var(--rotate-bar-three));
-  transition: bottom 200ms 100ms, transform 100ms;
-}
-
-.check-icon:checked + .icon-menu > .bar--1 {
-  transition: top 200ms, transform 200ms 100ms;
-}
-
-.check-icon:checked + .icon-menu > .bar--3 {
-  transition: bottom 200ms, transform 200ms 100ms;
-}
-
-.check-icon:checked + .icon-menu {
-  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
-  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
-  --scale-bar: 0;
-  --rotate-bar-one: 45deg;
-  --rotate-bar-three: -45deg;
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-    .icon-menu{
-        display: block;
-        
-    }
-    .bar {
-  position: relative;
-  height: 5px;
-  width: 100%;
-  border-radius: .5rem;
-  background-color: #d6d6d6;
-  margin:2px;
-}
-
-.bar--1 {
-  top: var(--pos-y-bar-one);
-  transform: rotate(var(--rotate-bar-one));
-  transition: top 200ms 100ms, transform 100ms;
-}
-
-.bar--2 {
-  transform: scaleX(var(--scale-bar));
-  transition: transform 150ms 100ms;
-}
-
-.bar--3 {
-  bottom: var(--pos-y-bar-three);
-  transform: rotate(var(--rotate-bar-three));
-  transition: bottom 200ms 100ms, transform 100ms;
-}
-
-.check-icon:checked + .icon-menu > .bar--1 {
-  transition: top 200ms, transform 200ms 100ms;
-}
-
-.check-icon:checked + .icon-menu > .bar--3 {
-  transition: bottom 200ms, transform 200ms 100ms;
-}
-
-.check-icon:checked + .icon-menu {
-  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
-  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
-  --scale-bar: 0;
-  --rotate-bar-one: 45deg;
-  --rotate-bar-three: -45deg;
-}
-    }
-
-    .card {
-      background-color: black;
-      border: 1px solid rgb(131, 39, 39);
-      border-top-left-radius:30px;
-      border-bottom-right-radius: 30px;
-      height:100%;
-      
-    }
-    .card-title {
-      color: #f8f9fa;
-    }
-    .upload-header {
-      padding: 2rem 0;
-      text-align: center;
-      background-color: #000;
-    }
-    .upload-header input {
-      margin-top: 1rem;
-    }
-    @media (max-width: 767px) {
-      header {
-        height: 300px;
-        
-
-      }
-    }
-
-    /* Initially hide the navbar menu off-screen to the right */
-.navbar-collapse {
-  position: absolute;
-  top: 0;
-  right: -100%; /* Menu starts off-screen on the right */
-  width: 90%;
-  height:36.5vh;
-  margin-right: 20px;
-  margin-top: 70px;
-  border-radius: 20px;
-  border:1px solid red;
-  background-color: black;
-  transition: right 0.3s ease; /* Smooth sliding effect */
-}
-
-/* When the checkbox is checked (menu is toggled), slide the navbar into view */
-.check-icon:checked + .icon-menu + .navbar-collapse {
-  right: 0; /* Slide the menu in from the right */
-}
-
-/* Optional: Modify the .navbar-nav to adjust its alignment */
-.navbar-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px; /* Adjust for vertical spacing */
-}
-
-/* Optional: Adjust the nav links for better visibility */
-.navbar-nav .nav-link {
-  font-size: 1rem; /* Larger text for readability */
-  margin: 5px 0; /* Adjust spacing */
-}
-
-  </style>
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <img src="/static/flagbrand.png" style="height:25px;width:120px;margin-top: 7px;">
-    <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
-    <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
-        <div class="bar bar--1"></div>
-        <div class="bar bar--2"></div>
-        <div class="bar bar--3"></div>
-    </label>
 
-    <div class="collapse navbar-collapse" id="navbarNav" >
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item ml-4"><a class="nav-link" href="">Services</a></li>
-            <li class="nav-item ml-4"><a class="nav-link" href="">Courses</a></li>
-            
-            <li class="nav-item ml-4"><a class="nav-link" href="">Contact Us</a></li>
-            <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li>
-            <li class="nav-item ml-4"><a class="nav-link" href="">Register</a></li>
-
-        </ul>
-    </div>
-</nav>
-<script>
-    // Navbar background color change on scroll or menu toggle
-function updateNavbarBackground() {
-  const navbar = document.querySelector(".navbar");
-  const menuCheckbox = document.querySelector("#check-icon");
-
-  if (menuCheckbox.checked || window.scrollY > 50) {
-    navbar.style.background = "rgba(0, 0, 0, 0.363)"; // Light transparent background for contrast
-    navbar.style.backdropFilter = "blur(10px)";
-    navbar.style.webkitBackdropFilter = "blur(10px)";
-    navbar.style.transition = "background 0.3s ease, backdrop-filter 0.3s ease"; // Smooth transition
-  } else {
-    navbar.style.background = "transparent";
-    navbar.style.backdropFilter = "none";
-    navbar.style.webkitBackdropFilter = "none";
-  }
-}
-
-// Attach scroll event listener
-window.addEventListener("scroll", updateNavbarBackground);
-
-// Attach toggle menu listener
-document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
-
-  </script>
-
-<style>
-    .hero-section {
-                     background: url('/static/flg.jpg') no-repeat center center / cover;
-                     height: 100%;
-                     
-                     
-                     
-                     
-                     
-                 }
-                 @media (min-width: 1200px) {
-             .hero-section {
-                 height: 700px;
-                 
-             }
-         }
-         
-         /* For medium screens (e.g., tablets) */
-         <style>
-  
-  /* For small screens (e.g., mobile devices) */
-  @media (max-width: 767px) {
-      .hero-section {
+    <div class="container-fluid">
+        <!-- Sidebar -->
+        <nav class="sidebar navbar navbar-expand-md navbar-light bg-light">
+          <button class="navbar-toggler mb-5" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="sidebarMenu" >
+              <div class="sidebar p-3">
+                  <h2>Dashboard</h2>
+                  <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link" href="#videos">Recorded Classes</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#quizzes">Quizzes</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#assignments">Assignments</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#analytics">Performance</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#materials">Study Materials</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#forum">Discussion Forum</a></li>
+                  </ul>
+              </div>
+          </div>
           
-          height: 400px;
-          background-position: center top;
-      }
-  }
-  
-  /* For extra small screens (e.g., very narrow mobile devices) */
-  @media (max-width: 480px) {
-      .hero-section {
-          height: 350px;
-          background-position: center top;
-          background-size: cover;
-      }
-  }
-</style>
-<header class="hero-section">
-<img src="/static/flg.jpg" style="width:100%;height:85%;">
-</header>
-         
-                 
-
-
-  <div style="padding: 20px;">
-    <div class="about-us-section">
-      <h2 class="section-title">About Us</h2>
-      <p class="intro-text text-white">
-        Welcome to F.L.A.G. (Foreign Languages Academy Gurukulam), the leading German language institute in Kochi and Kottayam. Our inclusive training program is designed to enhance both academic performance and cultural integration, offering a unique learning experience that extends beyond the classroom.
-      </p>
-      <button class="about-button">More</button>
-    </div>
-  </div>
-
-
-  <style>
-    .about-us-section {
-      position: relative; /* To position the button within this container */
-      background-color: black;
-      border-radius: 15px;
-      padding: 30px;
-      max-width: 800px;
-      margin: 30px auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      line-height: 1.6;
-      color: #333;
-      margin-top: -100px;
-      border: 1px solid rgb(131, 39, 39);
-    }
-    
-    .section-title {
-      font-size: 2rem;
-      color: rgb(131, 39, 39);
-      margin-bottom: 20px;
-    }
-    
-    .intro-text,
-    .details,
-    .mission,
-    .conclusion {
-      margin-bottom: 50px;
-    }
-    
-    .about-button {
-      position: absolute; /* Position button within the container */
-      bottom: 20px; /* Distance from the bottom */
-      right: 20px; /* Distance from the right */
-      border-bottom-right-radius: 20px;
-      border-top-left-radius: 20px;
-      background: rgb(36, 0, 5);
-      background: linear-gradient(90deg, rgba(36, 0, 5, 1) 0%, rgba(133, 41, 37, 0.933) 51%, rgba(110, 44, 44, 1) 100%);
-      color: white;
-      height: 50px;
-      width: 150px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-     
-    }
-    
-    .about-button:hover {
-      background: rgb(131, 39, 39);
-      color: white;
-      transform: scale(1.05);
-    }
-    
-    @media (max-width: 768px) {
-      .about-us-section {
-        padding: 20px;
-        margin-top: -70px;
-      }
-    
-      .section-title {
-        font-size: 1.8rem;
-      }
-    
-      .about-button {
-        height: 40px;
-        width: 120px;
-        font-size: 1rem;
-        bottom: 10px; /* Adjust spacing for smaller screens */
-        right: 10px;
-        
-      }
-    }
-    </style>
-<div style="padding:30px;">
-  <div class="carousel" data-flickity='{ "autoPlay": true, "prevNextButtons": false, "wrapAround": true }' style="background:transparent;background-size:200px;">
-    <!-- Carousel Cell 1 -->
-    <div class="carousel-cell" style="background-image: url(https://i.pinimg.com/736x/7c/82/3d/7c823d76708d3f1a80fcebcc1baae185.jpg);">
-        <div class="carousel-info">
-            <h4>Online Classes</h4>
-            <button class="carousel-button">Enroll-Now</button>
-        </div>
-    </div>
-
-    <!-- Carousel Cell 2 -->
-    <div class="carousel-cell" style="background-image: url(https://i.pinimg.com/736x/a9/63/94/a96394bb6febf43f2d3675ac8eb55da1.jpg);">
-        <div class="carousel-info">
-            <h4>Life Abroad</h4>
-            <button class="carousel-button">Register</button>
-        </div>
-    </div>
-
-    <!-- Carousel Cell 3 -->
-    <div class="carousel-cell" style="background-image: url(https://i.pinimg.com/736x/5b/5d/6c/5b5d6ca2b50ea9955ce1128d28551887.jpg);">
-        <div class="carousel-info">
-          <h4>Our Students</h4>
-          <button class="carousel-button">View </button>
-        </div>
-    </div>
-</div>
-</div>
-<style>
-/* Carousel Styling */
-.carousel {
-    margin-top: 20px;
-    z-index: 10;
-}
-
-.carousel-cell {
-    width: 45%;
-    height: 400px;
-    margin-right: 10px;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Overlay for Text */
-.carousel-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    text-align: center;
-    height: 100%;
-    
-    border-radius: 0 0 15px 15px;
-}
-
-.carousel-info h4 {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 30%;
-}
-
-.carousel-info p {
-    margin: 5px 0 0;
-    font-size: 1.1rem;
-    font-weight: 300;
-    
-}
-
-/* Button Styling */
-.carousel-button {
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
-    background: rgb(36,0,5);
-background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.9332107843137255) 51%, rgba(110,44,44,1) 100%);
-    
-    color: white;
-    height: 50px;
-    width: 150px;
-    position: absolute;
-    bottom: -1px;
-    right: -1px;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-.carousel-button:hover {
-    background: rgb(131, 39, 39);
-    color: white;
-    transform: scale(1.05);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .carousel {
-        margin-top: -20px;
-        margin-bottom: 20px;
-    }
-
-    .carousel-cell {
-        width: 70%;
-        height: 300px;
-        margin-right: 15px;
-    }
-
-    .carousel-info {
-        padding: 15px;
-        height: 100%;
-    }
-
-    .carousel-info h4 {
-        font-size: 1.2rem;
-        margin-top: 40px;
-    }
-
-    .carousel-info p {
-        font-size: 1rem;
-    }
-
-    .carousel-button {
-        height: 40px;
-        width: 120px;
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .carousel-cell {
-        width: 70%;
-        height: 200px;
-        margin-right: 10px;
-    }
-
-    .carousel-info {
-        padding: 10px;
-        height: 100%;
-
-    }
-
-    .carousel-info h4 {
-        font-size: 1.2 rem;
-        margin-top: 80px;
-    }
-
-    .carousel-info p {
-        font-size: 0.9 rem;
-    }
-
-    .carousel-button {
-        height: 35px;
-        width: 100px;
-        font-size: 0.9rem;
-    }
-}
-
-</style>
-
-
-
-
-  <!-- Cards Section -->
-  <div class="container py-5" style="margin-top: -100px;">
-    <h3 class="text-center mb-5" style="margin-top: 100px;">GERMAN LANGUAGE LEVELS</h3>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card p-3">
-          <div class="card-body">
-            <h5 class="card-title">A1</h5>
-            <p class="card-text" style="color:white;">Learn the basics of the German language with A1 level training. Master introductions, simple conversations, numbers, days, and essential grammar like verbs, articles, and sentence structure. Build vocabulary for daily life, travel, and work. Perfect for beginners to start their German journey with confidence and cultural understanding.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-3">
-          <div class="card-body">
-            <h5 class="card-title">A2</h5>
-            <p class="card-text" style="color:white;">Advance your German skills with A2 level training. Enhance your vocabulary, hold detailed conversations, and understand simple texts. Master past and future tenses, modal verbs, and more complex grammar. Learn to discuss personal interests, daily routines, and practical topics, preparing you for deeper cultural and professional interactions in German-speaking environments.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-3">
-          <div class="card-body">
-            <h5 class="card-title">B1</h5>
-            <p class="card-text" style="color:white;">Achieve independence in German with B1 level training. Engage in detailed conversations, express opinions, and comprehend everyday texts. Master complex grammar, including subjunctive forms and advanced sentence structures. Gain confidence in navigating real-life situations like work, travel, and social interactions, while deepening cultural insights and preparing for higher education or career opportunities in German-speaking countries.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-3">
-          <div class="card-body">
-            <h5 class="card-title">B2</h5>
-            <p class="card-text" style="color:white;">Master intermediate German with B2 level training. Improve fluency in conversations on a variety of topics, including current events and abstract concepts. Perfect your command of complex grammar structures, including passive voice and conditional sentences. Enhance your ability to write essays and engage in discussions, preparing for professional or academic opportunities in German-speaking environments.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="container text-center mt-5">
-    <div class="tree-diagram">
-      <!-- Top Box -->
-      <div class="box top-box">GERMAN OPPORTUNITIES</div>
-      <!-- Connecting Line -->
-      <img src="/static/arrow.svg" class="connecting-arrow" alt="Arrow">
-      <!-- Sub Boxes -->
-      <div class="sub-boxes">
-        <div class="box sub-box" data-bs-toggle="modal" data-bs-target="#registerModal">Jobs</div>
-        <div class="box sub-box" data-bs-toggle="modal" data-bs-target="#ausbuildingModal">Ausbuilding</div>
-        
-        
-      </div>
-    </div>
-  </div>
-  <style>
-  
-    .form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width:100%;
-        
-        padding: 20px;
-        border-radius: 20px;
-        position: relative;
-    }
-
-    .title {
-        font-size: 28px;
-        color: white;
-        font-weight: 600;
-        letter-spacing: -1px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        padding-left: 30px;
-    }
-
-    .title::before,
-    .title::after {
-        position: absolute;
-        content: "";
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-        left: 0px;
-        background-color: rgb(131, 39, 39);
-    }
-
-    .title::before {
-        width: 18px;
-        height: 18px;
-        background-color: rgb(131, 39, 39);
-    }
-
-    .title::after {
-        width: 18px;
-        height: 18px;
-        animation: pulse 1s linear infinite;
-    }
-
-    .message,
-    .signin {
-        color: rgba(88, 87, 87, 0.822);
-        font-size: 14px;
-    }
-
-    
-
-    .flex {
-        display: flex;
-        width: 100%;
-        gap: 6px;
-    }
-
-    .form label {
-        position: relative;
-    }
-
-    .form label .input {
-        width: 100%;
-        padding: 10px 10px 20px 10px;
-        outline: 0;
-        border: 1px solid rgba(105, 105, 105, 0.397);
-        border-radius: 10px;
-    }
-
-    .form label .input + span {
-        position: absolute;
-        left: 10px;
-        top: 15px;
-        color: grey;
-        font-size: 0.9em;
-        cursor: text;
-        transition: 0.3s ease;
-    }
-
-    .form label .input:placeholder-shown + span {
-        top: 15px;
-        font-size: 0.9em;
-    }
-
-    .form label .input:focus + span,
-    .form label .input:valid + span {
-        top: 0px;
-        font-size: 0.7em;
-        font-weight: 600;
-    }
-
-    .form label .input:valid + span {
-        color: red;
-    }
-
-    .submit {
-        border: none;
-        outline: none;
-        background: rgb(36,0,5);
-background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.9332107843137255) 51%, rgba(110,44,44,1) 100%);
-        padding: 10px;
-        border-radius: 10px;
-        color: #fff;
-        font-size: 16px;
-        transform: 0.3s ease;
-    }
-
-    .submit:hover {
-        background-color: rgb(56, 90, 194);
-        cursor: pointer;
-    }
-
-    @keyframes pulse {
-        from {
-            transform: scale(0.9);
-            opacity: 1;
-        }
-
-        to {
-            transform: scale(1.8);
-            opacity: 0;
-        }
-    }
-</style>
-<div class="modal fade" id="ausbuildingModal" tabindex="-1" aria-labelledby="ausbuildingModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content" style="background: transparent;">
-          <div class="modal-body" style="backdrop-filter: blur(16px) saturate(180%);
-          -webkit-backdrop-filter: blur(16px) saturate(180%);
-          background-color: rgba(17, 25, 40, 0.75); border-radius: 20px;">
-              <!-- Form -->
-              <form class="form">
-                  <p class="title">Ausbuilding</p>
-
-                  <div class="flex">
-                      <label>
-                          <input class="input" type="text" placeholder="" required>
-                          <span>Name</span>
-                      </label>
-
-                      <label>
-                          <input class="input" type="text" placeholder="" required>
-                          <span>Qualification</span>
-                      </label>
-                  </div>
-
-                  <label>
-                      <input class="input" type="email" placeholder="" required>
-                      <span>Email</span>
-                  </label>
-
-                  <label>
-                      <input class="input" type="text" placeholder="" required>
-                      <span>Mobile</span>
-                  </label>
-
-                  <label>
-                      <input class="input" type="text" placeholder="" required>
-                      <span>Specialization</span>
-                  </label>
-
-                  <button type="submit" class="submit">Submit</button>
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
-
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content" style="background:transparent;">
-          
-          <div class="modal-body" style="backdrop-filter: blur(16px) saturate(180%);
-          -webkit-backdrop-filter: blur(16px) saturate(180%);
-          background-color: rgba(17, 25, 40, 0.75); border-radius: 20px;">
-              <!-- Form Integration -->
-              <form class="form">
-                  <p class="title">JOBS </p>
-                  
-                  <div class="flex">
-                      <label>
-                          <input class="input" type="text" placeholder="" required="">
-                          <span>Name</span>
-                      </label>
-
-                      <label>
-                          <input class="input" type="text" placeholder="" required="">
-                          <span>Qualification</span>
-                      </label>
-                  </div>
-
-                  <label>
-                      <input class="input" type="email" placeholder="" required="">
-                      <span>Email</span>
-                  </label>
-
-                  <label>
-                      <input class="input" type="password" placeholder="" required="">
-                      <span>Mobile</span>
-                  </label>
-                  <label>
-                      <input class="input" type="password" placeholder="" required="">
-                      <span>Specialization</span>
-                  </label>
-                  <button class="submit">Submit</button>
-                  
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
-
-
-
-
-  <style>
-    /* Base Styling */
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-top: -50px;
-    }
-  
-    .tree-diagram {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-      width: 100%;
-      max-width: 600px;
-    }
-  
-    /* Box Styling */
-    .box {
-      background: rgb(36, 0, 5);
-      background: linear-gradient(
-        90deg,
-        rgba(36, 0, 5, 1) 0%,
-        rgba(133, 41, 37, 0.93) 51%,
-        rgba(34, 29, 29, 1) 100%
-      );
-      color: #f8f9fa;
-      border: 1px solid rgb(131, 39, 39);
-      border-radius: 30px;
-      padding: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      text-align:center;
-      width: 100%;
-      max-width: 350px;
-      
-      
-    }
-  
-    /* Top Box */
-    .top-box {
-      margin-bottom: 1px;
-
-    }
-  
-    /* Connecting Arrow */
-    .connecting-arrow {
-      height: 80px;
-      
-      
-    }
-  
-    /* Sub Boxes Container */
-    .sub-boxes {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      width: 100%;
-      max-width: 600px;
-      
-    }
-  
-    /* Responsive Styling */
-    @media (max-width: 768px) {
-      .sub-boxes {
-        flex-wrap: wrap; /* Allow boxes to wrap if necessary */
-        justify-content: center;
-        gap: 15px;
-        margin-bottom:30px;
-      }
-  
-      .box {
-        max-width: 40%;
-        font-size: 16px;
-      }
-  
-      .connecting-arrow {
-        height: 60px;
-      }
-    }
-  
-    @media (max-width: 480px) {
-      .sub-boxes {
-        flex-direction: column; /* Stack boxes vertically */
-        align-items: center;
-        
-        
-      }
-  
-      .box {
-        max-width: 80%; /* Take up full width */
-        font-size: 14px;
-        padding: 15px;
-      }
-  
-      .connecting-arrow {
-        content: url('/static/arrow10.svg'); /* Replace the arrow image */
-        height: 30px;
-        margin-top: 10px;
-        margin-bottom: 14px;
-        
-      }
-    }
-  </style>
-  
-
-
-  <div class="container py-5">
-    <h2 class="text-center mb-5" style="margin-top: 100px;">What We Offer...</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card p-3">
-          <div class="card-body">
-            <h5 class="card-title mb-4">GERMAN TRAINING</h5>
-            <p class="card-text" style="color:white;">The only language that holds the key to the most powerful passport, and one of the most powerful economies. Germany holds the key to a lot of opportunities. But the barrier is the same: language. In FLAG we have the advantage available to all those who wish to learn German. For individuals seeking The best German language institute In Kochi, Kottayam that employs such an approach .</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-3">
-          <div class="card-body">
-            <h5 class="card-title mb-4">STUDIO THEATRE ENTERTAINMENT PLUS LEARNING</h5>
-            <p class="card-text" style="color:white;">If you love what you do, you will also love the way you do it. This method aims at bringing out academic-based additional exposure through studio theatre experiences where students are drawn together to grasp, ponder imaginativeness, and advance their language proficiency through movies, web series, and other interactive sessions. By following this approach, one’s motive for learning a new language turns into a passion.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-3">
-          <div class="card-body">
-            <h5 class="card-title mb-4">GLOBAL CLASSROOM SYSTEM</h5>
-            <p class="card-text" style="color:white;">Our Academy offers a digitalized classroom system where the world’s leading trainers come in tandem into the virtual setting provided at FLAG to take classes and preparatory interviews for the students. The aspirants thereby get profuse opportunities to discuss and connect with university officials from across the globe during the virtual session, consequently providing them with the utmost faith in international education.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card p-3">
-          <div class="card-body">
-            <h5 class="card-title mb-4">VAST ARRAY OF GERMAN BOOKS</h5>
-            <p class="card-text" style="color:white;">Discover a vast collection of German books carefully curated to meet diverse interests and learning needs.our selection spans genres like fiction, non-fiction, self-help, and academic resources. Whether you're mastering a new language, expanding your knowledge, or seeking an escape into captivating stories. Our range also includes dictionaries, grammar guides, and language workbooks, making it an ideal resource for students. Dive into the world of literature </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <footer class="footer-section">
-    <div class="container">
-        <div class="footer-cta pt-5 pb-5">
-            <div class="row">
-                <div class="col-xl-4 col-md-4 mb-3">
-                    <div class="single-cta">
-                        
-                        <div class="cta-text" style="margin-top: 20px;">
-                            
-                            <h4>Find us</h4>
-                            <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Kottayam, Kerala ,India <br>Pincode : 68 60 01</span>
+      </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Welcome back, Student!</h1>
+
+            <!-- Recorded Classes Section -->
+            <section id="videos">
+                <h2 class="section-title">Recorded Classes</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">Class 1</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">Class 2</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">Class 3</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-xl-4 col-md-4 mb-3">
-                    <div class="single-cta">
-                       
-                        <div class="cta-text" style="margin-top: 20px;">
-                            <h4>Call us</h4>
-                            <span>+91 907 2222 911 ,</span>
-                            <span>+91 907 2222 933</span>
-                        </div>
+            </section>
+
+            <!-- Quizzes Section -->
+            <section id="quizzes">
+                <h2 class="section-title">Quizzes</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Quiz 1: Math Basics</a></li>
+                    <li class="list-group-item"><a href="#">Quiz 2: Science Fundamentals</a></li>
+                    <li class="list-group-item"><a href="#">Quiz 3: History Overview</a></li>
+                </ul>
+            </section>
+            <br>
+
+            <!-- Assignments Section -->
+            <section id="assignments">
+                <h2 class="section-title">Upload Assignments</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="assignmentUpload" class="form-label">Upload your assignment:</label>
+                        <input class="form-control" type="file" id="assignmentUpload">
+                    </div>
+                    <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                </form>
+            </section>
+<br>
+            <!-- Performance Analytics Section -->
+            <section id="analytics">
+                <h2 class="section-title">Performance Analytics</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Track your progress in quizzes, assignments, and classes.</p>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-4 mb-30">
-                    <div class="single-cta">
-                        
-                        <div class="cta-text" style="margin-top: 20px;">
-                            <h4>Mail us</h4>
-                            <span>info@flaggurukulam.com</span>
-                        </div>
+            </section>
+<br>
+            <!-- Study Materials Section -->
+            <section id="materials">
+                <h2 class="section-title">Study Materials</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Access downloadable PDFs and lecture notes here.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="footer-content pt-5 pb-5">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 mb-50">
-                    <div class="footer-widget">
-                
-                        <div class="footer-text" style="margin-top: 30px;">
-                            <p>The best German language institute In Kochi, Kottayam. F.L.A.G. Foreign Languages Academy Gurukulam, contrarily, has an inclusive training program that focuses on academic performance academically and cultural integration.</p>
-                        </div>
-                        <div class="footer-social-icon mb-4" style="margin-top: 30px;">
-                            <span>Follow us</span>
-                            <a href="https://www.facebook.com/lifeplannerstudies"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
-                            <a href="https://x.com/i/flow/login?redirect_after_login=%2Flifeplannerktm"><i class="fab fa-twitter bg-light text-dark"></i></a>
-                            <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-instagram bg-light text-dark"></i></a>
-                        </div>
+            </section>
+<br>
+            <!-- Discussion Forum Section -->
+            <section id="forum">
+                <h2 class="section-title">Discussion Forum</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Engage with peers and instructors in class discussions.</p>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;margin-top: 30px;">
-                    <div class="footer-widget" >
-                        <div class="footer-widget-heading" style="margin-top: 30px;">
-                            <h4>Top Links</h4>
-                        </div>
-                        <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Offers</a></li>
-                            <li><a href="">Courses</a></li>
-                            <li><a href="">Contact Us</a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
-                    <img src="/static/flagbrand.png" style="width:280px;margin-top: 30px;">
-                </div>
-            </div>
-        </div>
-        <div class="copyright-area">
-            <div class="container">
-                <div class="row"  style="display:flex;justify-content: center;align-items: center;">
-                    <div class="col-xl-6 col-lg-6 text-center ">
-                        <div class="copyright-text" >
-                            <p>Copyright &copy; 2025, All Right Reserved flaggurukulam.com</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
+            </section>
         </div>
     </div>
-    
-</footer>
-<style>
-    ul {
-    margin: 0px;
-    padding: 0px;
-    
-}
-.footer-section {
-background: transparent;
-  position: relative;
-  margin-top: 130px;
-  margin-bottom:-50px;
-}
-.footer-cta {
-  border-bottom: 1px solid #373636;
-}
-.single-cta i {
-  color: white;
-  font-size: 30px;
-  float: left;
-  margin-top: 8px;
-}
-.cta-text {
-  padding-left: 15px;
-  display: inline-block;
-}
-.cta-text h4 {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-.cta-text span {
-  color: #ffffff;
-  font-size: 15px;
-}
-.footer-content {
-  position: relative;
-  z-index: 2;
-}
-.footer-pattern img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 330px;
-  background-size: cover;
-  background-position: 100% 100%;
-}
-.footer-logo {
-  margin-bottom: 30px;
-}
-.footer-logo img {
-    max-width: 200px;
-}
-.footer-text p {
-  margin-bottom: 14px;
-  font-size: 14px;
-      color: white;
-  line-height: 28px;
-}
-.footer-social-icon span {
-  color: #ffffff;
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 20px;
-}
-.footer-social-icon a {
-  color: #fff;
-  font-size: 16px;
-  margin-right: 15px;
-}
-.footer-social-icon i {
-  height: 40px;
-  width: 40px;
-  text-align: center;
-  line-height: 38px;
-  border-radius: 50%;
-}
-.facebook-bg{
-  background: #3B5998;
-}
-.twitter-bg{
-  background: #55ACEE;
-}
-.google-bg{
-  background: #DD4B39;
-}
-.footer-widget-heading h4 {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  position: relative;
-}
-.footer-widget-heading h4::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -15px;
-  height: 2px;
-  width: 50px;
-  background: #ff5e14;
-}
-.footer-widget ul li {
-  display: inline-block;
-  float: left;
-  width: 50%;
-  margin-bottom: 12px;
-}
-.footer-widget ul li a:hover{
-  color: #ffffff;
-}
-.footer-widget ul li a {
-  color: #ffffff;
-  text-transform: capitalize;
-}
-.subscribe-form {
-  position: relative;
-  overflow: hidden;
-}
-.subscribe-form input {
-  width: 100%;
-  padding: 14px 28px;
-  background: #2E2E2E;
-  border: 1px solid #2E2E2E;
-  color: #fff;
-}
-.subscribe-form button {
-    position: absolute;
-    right: 0;
-    background: #ff5e14;
-    padding: 13px 20px;
-    border: 1px solid #ff5e14;
-    top: 0;
-}
-.subscribe-form button i {
-  color: #fff;
-  font-size: 22px;
-  transform: rotate(-6deg);
-}
-.copyright-area{
-    
-  padding: 25px 0;
-  display:flex;
-}
-.copyright-text p {
-  margin: 0;
-  font-size: 14px;
-  color: #ffffff;
-}
-.copyright-text p a{
-  color: #ffffff;
-}
-.footer-menu li {
-  display: inline-block;
-  margin-left: 20px;
-}
-.footer-menu li:hover a{
-  color: #ffffff;
-}
-.footer-menu li a {
-  font-size: 14px;
-  color: #878787;
-}
-</style>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  
-    
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <!-- Include Swiper.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-<!-- Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<br>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
