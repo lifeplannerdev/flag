@@ -20,6 +20,7 @@
       background-color: rgb(2, 2, 2);
       color: #f8f9fa;
       font-family: myfont;
+      font-weight: bold;
       letter-spacing: 1px;
       
     }
@@ -261,11 +262,13 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
   </header>
   <div style="padding: 20px;">
     <div class="about-us-section">
-      <h2 class="section-title">About Us</h2>
+      <h2 class="section-title" style="font-weight: bold;">About Us</h2>
       <p class="intro-text text-white">
         Welcome to F.L.A.G. (Foreign Languages Academy Gurukulam), the leading German language institute in Kochi and Kottayam. Our inclusive training program is designed to enhance both academic performance and cultural integration, offering a unique learning experience that extends beyond the classroom.
       </p>
+      <a href="{% url 'flagapp:about' %}">
       <button class="about-button">More</button>
+    </a>
     </div>
   </div>
 
@@ -510,7 +513,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
 
   <!-- Cards Section -->
   <div class="container py-5" style="margin-top: -100px;">
-    <h3 class="text-center mb-5" style="margin-top: 100px;">GERMAN LANGUAGE LEVELS</h3>
+    <h3 class="text-center mb-5" style="margin-top: 100px;font-weight: bold;">GERMAN LANGUAGE LEVELS</h3>
     <div class="row g-4">
       <div class="col-md-6">
         <div class="card p-3">
@@ -892,12 +895,12 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
 
 
   <div class="container py-5">
-    <h2 class="text-center mb-5" style="margin-top: 100px;">What We Offer...</h2>
+    <h2 class="text-center mb-5" style="margin-top: 100px;font-weight: bold;">What We Offer...</h2>
     <div class="row g-4">
       <div class="col-md-6">
         <div class="card p-3">
           <div class="card-body">
-            <h5 class="card-title mb-4">GERMAN TRAINING</h5>
+            <h5 class="card-title mb-4" style="font-weight: bold;">GERMAN TRAINING</h5>
             <p class="card-text" style="color:white;">The only language that holds the key to the most powerful passport, and one of the most powerful economies. Germany holds the key to a lot of opportunities. But the barrier is the same: language. In FLAG we have the advantage available to all those who wish to learn German. For individuals seeking The best German language institute In Kochi, Kottayam that employs such an approach .</p>
           </div>
         </div>
@@ -905,7 +908,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
       <div class="col-md-6">
         <div class="card p-3">
           <div class="card-body">
-            <h5 class="card-title mb-4">STUDIO THEATRE ENTERTAINMENT PLUS LEARNING</h5>
+            <h5 class="card-title mb-4" style="font-weight: bold;">STUDIO THEATRE ENTERTAINMENT PLUS LEARNING</h5>
             <p class="card-text" style="color:white;">If you love what you do, you will also love the way you do it. This method aims at bringing out academic-based additional exposure through studio theatre experiences where students are drawn together to grasp, ponder imaginativeness, and advance their language proficiency through movies, web series, and other interactive sessions. By following this approach, one’s motive for learning a new language turns into a passion.</p>
           </div>
         </div>
@@ -913,7 +916,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
       <div class="col-md-6">
         <div class="card p-3">
           <div class="card-body">
-            <h5 class="card-title mb-4">GLOBAL CLASSROOM SYSTEM</h5>
+            <h5 class="card-title mb-4" style="font-weight: bold;">GLOBAL CLASSROOM SYSTEM</h5>
             <p class="card-text" style="color:white;">Our Academy offers a digitalized classroom system where the world’s leading trainers come in tandem into the virtual setting provided at FLAG to take classes and preparatory interviews for the students. The aspirants thereby get profuse opportunities to discuss and connect with university officials from across the globe during the virtual session, consequently providing them with the utmost faith in international education.</p>
           </div>
         </div>
@@ -921,7 +924,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
       <div class="col-md-6">
         <div class="card p-3">
           <div class="card-body">
-            <h5 class="card-title mb-4">VAST ARRAY OF GERMAN BOOKS</h5>
+            <h5 class="card-title mb-4" style="font-weight: bold;">VAST ARRAY OF GERMAN BOOKS</h5>
             <p class="card-text" style="color:white;">Discover a vast collection of German books carefully curated to meet diverse interests and learning needs.our selection spans genres like fiction, non-fiction, self-help, and academic resources. Whether you're mastering a new language, expanding your knowledge, or seeking an escape into captivating stories. Our range also includes dictionaries, grammar guides, and language workbooks, making it an ideal resource for students. Dive into the world of literature </p>
         </div>
       </div>
