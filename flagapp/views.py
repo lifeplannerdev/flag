@@ -9,3 +9,7 @@ def home(request):
 
 def demo(request):
     return render (request ,"demo.html")
+
+
+def about(request):    
+    return render (request,"about.html")
