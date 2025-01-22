@@ -13,3 +13,7 @@ def demo(request):
 
 def about(request):    
     return render (request,"about.html")
+
+
+def registeration(request):
+    return render (request,"registration.html")    
