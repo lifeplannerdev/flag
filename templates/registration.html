@@ -279,7 +279,7 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
               <label for="amount" style="color:white;">Amount:</label>
               <input type="text" class="form-control" id="amount" value="₹600" style="border-radius: 30px;" readonly>
             </div>
-            <button type="submit" class="btn btn-danger w-100" style="border-radius: 30px;">Submit Payment</button>
+            <button type="submit" id="submitButton" class="btn btn-danger w-100" style="border-radius: 30px;" disabled>Submit Payment</button>
           </form>
         </div>
       </div>
@@ -287,33 +287,33 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
   </div>
   
   <script>
+    const fullName = document.getElementById('fullName');
+    const emailAddress = document.getElementById('emailAddress');
+    const contact = document.getElementById('contact');
+    const submitButton = document.getElementById('submitButton');
+  
+    // Function to check if all fields are filled
+    function validateForm() {
+      const isFormValid = 
+        fullName.value.trim() !== '' &&
+        emailAddress.value.trim() !== '' &&
+        contact.value.trim() !== '';
+  
+      submitButton.disabled = !isFormValid; // Enable or disable the button
+    }
+  
+    // Add event listeners to input fields
+    [fullName, emailAddress, contact].forEach(input => {
+      input.addEventListener('input', validateForm);
+    });
+  
     document.getElementById('paymentForm').addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent the default form submission
-      
-      const fullName = document.getElementById('fullName').value.trim();
-      const emailAddress = document.getElementById('emailAddress').value.trim();
-      const contact = document.getElementById('contact').value.trim();
-  
-      if (!fullName) {
-        alert('Full Name is required');
-        return;
-      }
-  
-      if (!emailAddress) {
-        alert('Email Address is required');
-        return;
-      }
-  
-      if (!contact) {
-        alert('Contact Number is required');
-        return;
-      }
-  
-      // If all validations pass, you can submit the form or perform other actions
+      e.preventDefault(); // Prevent default form submission
       alert('Form submitted successfully!');
-      // Optionally, you can use AJAX or similar methods to process the form data
+      // Process the form or send data to the server here
     });
   </script>
+  
   
   
 
