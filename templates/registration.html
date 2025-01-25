@@ -262,7 +262,8 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
       <div class="col-lg-6 col-md-8 col-12">
         <div class="card p-4" style="backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); background-color: rgba(17, 25, 40, 0.75);">
           <h2 class="text-center mb-4 text-white">Payment Form</h2>
-          <form id="paymentForm">
+          <form id="paymentForm" method="POST" action="">
+            {% csrf_token %}
             <div class="form-group mb-3">
               <label for="fullName" style="color:white;">Full Name</label>
               <input type="text" class="form-control" id="fullName" style="border-radius: 30px;" placeholder="Enter your full name" required>
@@ -314,7 +315,10 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     });
   </script>
   
-  
+
+
+
+
   
 
 
@@ -328,7 +332,10 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
                         <div class="cta-text" style="margin-top: 20px;">
                             
                             <h4>Find us</h4>
-                            <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Kottayam, Kerala ,India <br>Pincode : 68 60 01</span>
+                            <span>Foreign Languages Academy Gurukulam(F.L.A.G.)
+                                Near Nattakom Govt. College,
+                                Nattakom P.O.,
+                                Kottayam<br>Pincode : 68 60 13</span>
                         </div>
                     </div>
                 </div>

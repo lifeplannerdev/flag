@@ -1,5 +1,8 @@
 from django.shortcuts import render
-
+import razorpay
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseBadRequest
+from .models import Registration 
 # Create your views here.
 
 
@@ -14,6 +17,5 @@ def demo(request):
 def about(request):    
     return render (request,"about.html")
 
-
 def registeration(request):
-    return render (request,"registration.html")    
+    return render (request,"registration.html")
