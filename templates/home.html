@@ -503,6 +503,347 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
 
 </style>
 
+<div class="container text-center mt-5">
+  <div class="tree-diagram">
+    <!-- Top Box -->
+    <div class="box top-box">GERMAN OPPORTUNITIES</div>
+    <!-- Connecting Line -->
+    <img src="/static/arrow.svg" class="connecting-arrow" alt="Arrow">
+    <!-- Sub Boxes -->
+    <div class="sub-boxes">
+      <div class="box sub-box" data-bs-toggle="modal" data-bs-target="#registerModal">Careers</div>
+      <div class="box sub-box" data-bs-toggle="modal" data-bs-target="#ausbuildingModal">Ausbuilding</div>
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+
+  .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width:100%;
+      
+      padding: 20px;
+      border-radius: 20px;
+      position: relative;
+  }
+
+  .title {
+      font-size: 28px;
+      color: white;
+      font-weight: 600;
+      letter-spacing: -1px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+  }
+
+  .title::before,
+  .title::after {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      left: 0px;
+      background-color: rgb(131, 39, 39);
+  }
+
+  .title::before {
+      width: 18px;
+      height: 18px;
+      background-color: rgb(131, 39, 39);
+  }
+
+  .title::after {
+      width: 18px;
+      height: 18px;
+      animation: pulse 1s linear infinite;
+  }
+
+  .message,
+  .signin {
+      color: rgba(88, 87, 87, 0.822);
+      font-size: 14px;
+  }
+
+  
+
+  .flex {
+      display: flex;
+      width: 100%;
+      gap: 6px;
+  }
+
+  .form label {
+      position: relative;
+  }
+
+  .form label .input {
+      width: 100%;
+      padding: 10px 10px 20px 10px;
+      outline: 0;
+      border: 1px solid rgba(105, 105, 105, 0.397);
+      border-radius: 10px;
+  }
+
+  .form label .input + span {
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      color: grey;
+      font-size: 0.9em;
+      cursor: text;
+      transition: 0.3s ease;
+  }
+
+  .form label .input:placeholder-shown + span {
+      top: 15px;
+      font-size: 0.9em;
+  }
+
+  .form label .input:focus + span,
+  .form label .input:valid + span {
+      top: 0px;
+      font-size: 0.7em;
+      font-weight: 600;
+  }
+
+  .form label .input:valid + span {
+      color: red;
+  }
+
+  .submit {
+      border: none;
+      outline: none;
+      background: rgb(36,0,5);
+background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.9332107843137255) 51%, rgba(110,44,44,1) 100%);
+      padding: 10px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      transform: 0.3s ease;
+  }
+
+  .submit:hover {
+      background-color: rgb(56, 90, 194);
+      cursor: pointer;
+  }
+
+  @keyframes pulse {
+      from {
+          transform: scale(0.9);
+          opacity: 1;
+      }
+
+      to {
+          transform: scale(1.8);
+          opacity: 0;
+      }
+  }
+</style>
+<div class="modal fade" id="ausbuildingModal" tabindex="-1" aria-labelledby="ausbuildingModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content" style="background: transparent;">
+        <div class="modal-body" style="backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(17, 25, 40, 0.75); border-radius: 20px;">
+            <!-- Form -->
+            <form class="form">
+                <p class="title">Ausbuilding</p>
+
+                <div class="flex">
+                    <label>
+                        <input class="input" type="text" placeholder="" required>
+                        <span>Name</span>
+                    </label>
+
+                    <label>
+                        <input class="input" type="text" placeholder="" required>
+                        <span>Qualification</span>
+                    </label>
+                </div>
+
+                <label>
+                    <input class="input" type="email" placeholder="" required>
+                    <span>Email</span>
+                </label>
+
+                <label>
+                    <input class="input" type="text" placeholder="" required>
+                    <span>Mobile</span>
+                </label>
+
+                <label>
+                    <input class="input" type="text" placeholder="" required>
+                    <span>Specialization</span>
+                </label>
+
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content" style="background:transparent;">
+        
+        <div class="modal-body" style="backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(17, 25, 40, 0.75); border-radius: 20px;">
+            <!-- Form Integration -->
+            <form class="form">
+                <p class="title">JOBS </p>
+                
+                <div class="flex">
+                    <label>
+                        <input class="input" type="text" placeholder="" required="">
+                        <span>Name</span>
+                    </label>
+
+                    <label>
+                        <input class="input" type="text" placeholder="" required="">
+                        <span>Qualification</span>
+                    </label>
+                </div>
+
+                <label>
+                    <input class="input" type="email" placeholder="" required="">
+                    <span>Email</span>
+                </label>
+
+                <label>
+                    <input class="input" type="password" placeholder="" required="">
+                    <span>Mobile</span>
+                </label>
+                <label>
+                    <input class="input" type="password" placeholder="" required="">
+                    <span>Specialization</span>
+                </label>
+                <button class="submit">Submit</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<style>
+  /* Base Styling */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -50px;
+  }
+
+  .tree-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  /* Box Styling */
+  .box {
+    background: rgb(36, 0, 5);
+    background: linear-gradient(
+      90deg,
+      rgba(36, 0, 5, 1) 0%,
+      rgba(133, 41, 37, 0.93) 51%,
+      rgba(34, 29, 29, 1) 100%
+    );
+    color: #f8f9fa;
+    border: 1px solid rgb(131, 39, 39);
+    border-radius: 30px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align:center;
+    width: 100%;
+    max-width: 350px;
+    
+    
+  }
+
+  /* Top Box */
+  .top-box {
+    margin-bottom: 1px;
+
+  }
+
+  /* Connecting Arrow */
+  .connecting-arrow {
+    height: 80px;
+    
+    
+  }
+
+  /* Sub Boxes Container */
+  .sub-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    max-width: 600px;
+    
+  }
+
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .sub-boxes {
+      flex-wrap: wrap; /* Allow boxes to wrap if necessary */
+      justify-content: center;
+      gap: 15px;
+      margin-bottom:30px;
+    }
+
+    .box {
+      max-width: 40%;
+      font-size: 16px;
+    }
+
+    .connecting-arrow {
+      height: 60px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sub-boxes {
+      flex-direction: column; /* Stack boxes vertically */
+      align-items: center;
+      
+      
+    }
+
+    .box {
+      max-width: 80%; /* Take up full width */
+      font-size: 14px;
+      padding: 15px;
+    }
+
+    .connecting-arrow {
+      content: url('/static/arrow10.svg'); /* Replace the arrow image */
+      height: 30px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+      
+    }
+  }
+</style>
+
 
 
 
@@ -556,348 +897,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
   </div>
 </div> -->
 
-  <div class="container text-center mt-5">
-    <div class="tree-diagram">
-      <!-- Top Box -->
-      <div class="box top-box">GERMAN OPPORTUNITIES</div>
-      <!-- Connecting Line -->
-      <img src="/static/arrow.svg" class="connecting-arrow" alt="Arrow">
-      <!-- Sub Boxes -->
-      <div class="sub-boxes">
-        <div class="box sub-box" data-bs-toggle="modal" data-bs-target="#registerModal">Careers</div>
-        <div class="box sub-box" data-bs-toggle="modal" data-bs-target="#ausbuildingModal">Ausbuilding</div>
-        
-        
-      </div>
-    </div>
-  </div>
-  <style>
-  
-    .form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width:100%;
-        
-        padding: 20px;
-        border-radius: 20px;
-        position: relative;
-    }
-
-    .title {
-        font-size: 28px;
-        color: white;
-        font-weight: 600;
-        letter-spacing: -1px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        padding-left: 30px;
-    }
-
-    .title::before,
-    .title::after {
-        position: absolute;
-        content: "";
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-        left: 0px;
-        background-color: rgb(131, 39, 39);
-    }
-
-    .title::before {
-        width: 18px;
-        height: 18px;
-        background-color: rgb(131, 39, 39);
-    }
-
-    .title::after {
-        width: 18px;
-        height: 18px;
-        animation: pulse 1s linear infinite;
-    }
-
-    .message,
-    .signin {
-        color: rgba(88, 87, 87, 0.822);
-        font-size: 14px;
-    }
-
-    
-
-    .flex {
-        display: flex;
-        width: 100%;
-        gap: 6px;
-    }
-
-    .form label {
-        position: relative;
-    }
-
-    .form label .input {
-        width: 100%;
-        padding: 10px 10px 20px 10px;
-        outline: 0;
-        border: 1px solid rgba(105, 105, 105, 0.397);
-        border-radius: 10px;
-    }
-
-    .form label .input + span {
-        position: absolute;
-        left: 10px;
-        top: 15px;
-        color: grey;
-        font-size: 0.9em;
-        cursor: text;
-        transition: 0.3s ease;
-    }
-
-    .form label .input:placeholder-shown + span {
-        top: 15px;
-        font-size: 0.9em;
-    }
-
-    .form label .input:focus + span,
-    .form label .input:valid + span {
-        top: 0px;
-        font-size: 0.7em;
-        font-weight: 600;
-    }
-
-    .form label .input:valid + span {
-        color: red;
-    }
-
-    .submit {
-        border: none;
-        outline: none;
-        background: rgb(36,0,5);
-background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.9332107843137255) 51%, rgba(110,44,44,1) 100%);
-        padding: 10px;
-        border-radius: 10px;
-        color: #fff;
-        font-size: 16px;
-        transform: 0.3s ease;
-    }
-
-    .submit:hover {
-        background-color: rgb(56, 90, 194);
-        cursor: pointer;
-    }
-
-    @keyframes pulse {
-        from {
-            transform: scale(0.9);
-            opacity: 1;
-        }
-
-        to {
-            transform: scale(1.8);
-            opacity: 0;
-        }
-    }
-</style>
-<div class="modal fade" id="ausbuildingModal" tabindex="-1" aria-labelledby="ausbuildingModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content" style="background: transparent;">
-          <div class="modal-body" style="backdrop-filter: blur(16px) saturate(180%);
-          -webkit-backdrop-filter: blur(16px) saturate(180%);
-          background-color: rgba(17, 25, 40, 0.75); border-radius: 20px;">
-              <!-- Form -->
-              <form class="form">
-                  <p class="title">Ausbuilding</p>
-
-                  <div class="flex">
-                      <label>
-                          <input class="input" type="text" placeholder="" required>
-                          <span>Name</span>
-                      </label>
-
-                      <label>
-                          <input class="input" type="text" placeholder="" required>
-                          <span>Qualification</span>
-                      </label>
-                  </div>
-
-                  <label>
-                      <input class="input" type="email" placeholder="" required>
-                      <span>Email</span>
-                  </label>
-
-                  <label>
-                      <input class="input" type="text" placeholder="" required>
-                      <span>Mobile</span>
-                  </label>
-
-                  <label>
-                      <input class="input" type="text" placeholder="" required>
-                      <span>Specialization</span>
-                  </label>
-
-                  <button type="submit" class="submit">Submit</button>
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
-
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content" style="background:transparent;">
-          
-          <div class="modal-body" style="backdrop-filter: blur(16px) saturate(180%);
-          -webkit-backdrop-filter: blur(16px) saturate(180%);
-          background-color: rgba(17, 25, 40, 0.75); border-radius: 20px;">
-              <!-- Form Integration -->
-              <form class="form">
-                  <p class="title">JOBS </p>
-                  
-                  <div class="flex">
-                      <label>
-                          <input class="input" type="text" placeholder="" required="">
-                          <span>Name</span>
-                      </label>
-
-                      <label>
-                          <input class="input" type="text" placeholder="" required="">
-                          <span>Qualification</span>
-                      </label>
-                  </div>
-
-                  <label>
-                      <input class="input" type="email" placeholder="" required="">
-                      <span>Email</span>
-                  </label>
-
-                  <label>
-                      <input class="input" type="password" placeholder="" required="">
-                      <span>Mobile</span>
-                  </label>
-                  <label>
-                      <input class="input" type="password" placeholder="" required="">
-                      <span>Specialization</span>
-                  </label>
-                  <button class="submit">Submit</button>
-                  
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
-
-
-
-
-  <style>
-    /* Base Styling */
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-top: -50px;
-    }
-  
-    .tree-diagram {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-      width: 100%;
-      max-width: 600px;
-    }
-  
-    /* Box Styling */
-    .box {
-      background: rgb(36, 0, 5);
-      background: linear-gradient(
-        90deg,
-        rgba(36, 0, 5, 1) 0%,
-        rgba(133, 41, 37, 0.93) 51%,
-        rgba(34, 29, 29, 1) 100%
-      );
-      color: #f8f9fa;
-      border: 1px solid rgb(131, 39, 39);
-      border-radius: 30px;
-      padding: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      text-align:center;
-      width: 100%;
-      max-width: 350px;
-      
-      
-    }
-  
-    /* Top Box */
-    .top-box {
-      margin-bottom: 1px;
-
-    }
-  
-    /* Connecting Arrow */
-    .connecting-arrow {
-      height: 80px;
-      
-      
-    }
-  
-    /* Sub Boxes Container */
-    .sub-boxes {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      width: 100%;
-      max-width: 600px;
-      
-    }
-  
-    /* Responsive Styling */
-    @media (max-width: 768px) {
-      .sub-boxes {
-        flex-wrap: wrap; /* Allow boxes to wrap if necessary */
-        justify-content: center;
-        gap: 15px;
-        margin-bottom:30px;
-      }
-  
-      .box {
-        max-width: 40%;
-        font-size: 16px;
-      }
-  
-      .connecting-arrow {
-        height: 60px;
-      }
-    }
-  
-    @media (max-width: 480px) {
-      .sub-boxes {
-        flex-direction: column; /* Stack boxes vertically */
-        align-items: center;
-        
-        
-      }
-  
-      .box {
-        max-width: 80%; /* Take up full width */
-        font-size: 14px;
-        padding: 15px;
-      }
-  
-      .connecting-arrow {
-        content: url('/static/arrow10.svg'); /* Replace the arrow image */
-        height: 30px;
-        margin-top: 10px;
-        margin-bottom: 14px;
-        
-      }
-    }
-  </style>
-  
-
+ 
 
   <div class="container py-5">
     <h2 class="text-center mb-5" style="margin-top: 100px;font-weight: bold;">What We Offer...</h2>
