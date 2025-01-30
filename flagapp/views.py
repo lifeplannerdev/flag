@@ -19,3 +19,6 @@ def about(request):
 
 def registeration(request):
     return render (request,"registration.html")
+
+def levels(request):
+    return render (request,"levels.html")    

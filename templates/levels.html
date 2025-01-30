@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn German - Career & Ausbildung Opportunities</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    @font-face {
+      font-family: myfont;
+      src: url(/static/02_APompadourTextSample.ttf);
+    }
+
+    body {
+      background: linear-gradient(360deg, rgb(37, 2, 7) 0%, rgba(10, 3, 3, 0.93) 85%, rgb(141, 21, 21) 100%);
+      color: white;
+      font-family: myfont;
+      letter-spacing: 1px;
+    }
+
+    .navbar {
+      background: transparent;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    .navbar .nav-link {
+      color: #ffffff;
+      font-weight: 500;
+      margin: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      color: #ff4757;
+    }
+
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .icon-menu {
+      --gap: 5px;
+      --height-bar: 2.5px;
+      --pos-y-bar-one: 0;
+      --pos-y-bar-three: 0;
+      --scale-bar: 1;
+      --rotate-bar-one: 0;
+      --rotate-bar-three: 0;
+      width: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+      cursor: pointer;
+      position: relative;
+      margin-top: 5px;
+      margin-right: 10px;
+      display: none;
+    }
+
+    @media (max-width: 767px) {
+      .icon-menu {
+        display: flex;
+      }
+    }
+
+    .bar {
+      position: relative;
+      height: 3.2px;
+      width: 100%;
+      border-radius: .5rem;
+      background-color: #d6d6d6;
+    }
+
+    .card {
+        backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+      border: 1px solid rgb(131, 39, 39);
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      height: 100%;
+    }
+
+    .card-title {
+      color: #f8f9fa;
+    }
+
+    h1 {
+      margin-top: 6rem;
+      font-weight: bold;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      font-weight: bold;
+      font-size: 2rem;
+      text-align: center;
+      padding:20px;
+    }
+
+    p {
+      font-weight: bold;
+      
+      padding: 50px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <img src="/static/flagbrand.png" style="height:25px;width:120px;margin-top: 7px;">
+    <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox">
+    <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+      <div class="bar bar--1"></div>
+      <div class="bar bar--2"></div>
+      <div class="bar bar--3"></div>
+    </label>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-4"><a class="nav-link" href="">Home</a></li>
+        <li class="nav-item ml-4"><a class="nav-link" href="">Courses</a></li>
+        <li class="nav-item ml-4"><a class="nav-link" href="">Contact Us</a></li>
+        <li class="nav-item ml-4"><a class="nav-link" href="">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <h2 style="margin-top: 100px;">Learn German : Open Doors to Career & Ausbildung Opportunities</h2>
+  <p>
+    Germany is known for its strong economy, world-class education, and structured vocational training system (Ausbildung). Whether you are looking to study, work, or train in Germany, mastering the language can significantly enhance your opportunities.
+    Our German language courses are designed to help students, professionals, and job seekers gain the necessary language skills to succeed in various fields. From beginners at A1 level to advanced learners at B2 level, each stage of German proficiency opens up new career pathways and training possibilities.
+  </p>
+
+  <h2>German Language Levels & Their Career Scope</h2>
+  <br>
+  <br>
+
+
+  <!-- A1 Level -->
+  <div class="container">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">A1 Level – The Foundation of Communication</h2>
+        <p class="card-text">
+          <strong>Who is this for?</strong><br>
+          Absolute beginners who want to start learning German for travel, work, or future studies.<br>
+          <strong>What You Can Achieve at A1 Level:</strong><br>
+          At this stage, you will be able to introduce yourself, ask and answer simple questions, and understand basic expressions used in everyday conversations. While A1 does not qualify you for highly skilled jobs, it is a starting point for various opportunities.
+        </p>
+      </div>
+    </div>
+
+    <!-- A2 Level -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">A2 Level – Stepping into Structured Conversations</h2>
+        <p class="card-text">
+          <strong>Who is this for?</strong><br>
+          Individuals who want to enhance their basic communication skills for work or travel.<br>
+          <strong>What You Can Achieve at A2 Level:</strong><br>
+          A2 level German allows for better interactions in everyday situations. You will be able to communicate more comfortably in shops, banks, and restaurants and understand commonly used phrases.
+        </p>
+      </div>
+    </div>
+
+    <!-- B1 Level -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">B1 Level – The Pathway to Work & Ausbildung</h2>
+        <p class="card-text">
+          <strong>Who is this for?</strong><br>
+          Students who want to study or train in Germany.<br>
+          <strong>What You Can Achieve at B1 Level:</strong><br>
+          At this level, you can express opinions, hold longer conversations, and manage daily and workplace-related interactions more confidently.
+        </p>
+      </div>
+    </div>
+
+    <!-- B2 Level -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">B2 Level – Professional & Academic Opportunities</h2>
+        <p class="card-text">
+          <strong>Who is this for?</strong><br>
+          Professionals aiming for career growth in Germany.<br>
+          <strong>What You Can Achieve at B2 Level:</strong><br>
+          A B2 certificate signifies fluency in professional and academic settings. At this level, you can hold complex conversations, understand detailed texts, and work in highly interactive environments.
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-section">
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text" style="margin-top: 20px;">
+                            
+                            <h4>Find us</h4>
+                            <span>Foreign Languages Academy Gurukulam(F.L.A.G.)
+                              Near Nattakom Govt. College,
+                              Nattakom P.O.,
+                              Kottayam<br>Pincode : 68 60 13</span> 
+                                                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                       
+                        <div class="cta-text" style="margin-top: 20px;">
+                            <h4>Call us</h4>
+                            <span>+91 907 2222 911 ,</span>
+                            <span>+91 907 2222 933</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text" style="margin-top: 20px;">
+                            <h4>Mail us</h4>
+                            <span>info@flaggurukulam.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                
+                        <div class="footer-text" style="margin-top: 30px;">
+                            <p>The best German language institute In Kochi, Kottayam. F.L.A.G. Foreign Languages Academy Gurukulam, contrarily, has an inclusive training program that focuses on academic performance academically and cultural integration.</p>
+                        </div>
+                        <div class="footer-social-icon mb-4" style="margin-top: 30px;">
+                            <span>Follow us</span>
+                            <a href="https://www.facebook.com/lifeplannerstudies"><i class="fab fa-facebook-f text-light" style="background: rgb(170, 22, 22);"></i></a>
+                            <a href="https://x.com/i/flow/login?redirect_after_login=%2Flifeplannerktm"><i class="fab fa-twitter text-light" style="background: rgb(170, 22, 22);"></i></a>
+                            <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-instagram text-light" style="background: rgb(170, 22, 22);"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;margin-top: 30px;">
+                    <div class="footer-widget" >
+                        <div class="footer-widget-heading" style="margin-top: 30px;">
+                            <h4>Top Links</h4>
+                        </div>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Offers</a></li>
+                            <li><a href="">Courses</a></li>
+                            <li><a href="">Contact Us</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                    <img src="/static/flagbrand.png" style="width:280px;margin-top: 30px;">
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                    <div class="col-xl-6 col-lg-6 text-center ">
+                        <div class="copyright-text" >
+                            <p>Copyright &copy; 2025, All Right Reserved flaggurukulam.com</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+<style>
+    ul {
+    margin: 0px;
+    padding: 0px;
+    
+}
+.footer-section {
+background: transparent;
+  position: relative;
+  margin-top: 50px;
+  
+}
+.footer-cta {
+  border-bottom: 1px solid #373636;
+}
+.single-cta i {
+  color: white;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #ffffff;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: white;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #ffffff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #ffffff;
+}
+.footer-widget ul li a {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+    
+  padding: 25px 0;
+  display:flex;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+.copyright-text p a{
+  color: #ffffff;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #ffffff;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+</style>
+   <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Navbar background color change on scroll or menu toggle
+    function updateNavbarBackground() {
+      const navbar = document.querySelector(".navbar");
+      const menuCheckbox = document.querySelector("#check-icon");
+
+      if (menuCheckbox.checked || window.scrollY > 50) {
+        navbar.style.background = "rgba(0, 0, 0, 0.363)";
+        navbar.style.backdropFilter = "blur(10px)";
+        navbar.style.webkitBackdropFilter = "blur(10px)";
+        navbar.style.transition = "background 0.3s ease, backdrop-filter 0.3s ease";
+      } else {
+        navbar.style.background = "transparent";
+        navbar.style.backdropFilter = "none";
+        navbar.style.webkitBackdropFilter = "none";
+      }
+    }
+
+    // Attach scroll event listener
+    window.addEventListener("scroll", updateNavbarBackground);
+
+    // Attach toggle menu listener
+    document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
+  </script>
+</body>
+</html>
