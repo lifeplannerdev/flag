@@ -22,3 +22,6 @@ def registeration(request):
 
 def levels(request):
     return render (request,"levels.html")    
+
+def whyflag(request):
+    return render (request,"whyflag.html")   
