@@ -20,62 +20,113 @@
     }
 
     .navbar {
-      background: transparent;
-      padding: 0.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 999;
-      transition: background 0.3s ease, backdrop-filter 0.3s ease;
-    }
+    background: transparent;
+    
+    
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background 0.3s ease; /* Smooth transition for background color */
+}
 
-    .navbar .nav-link {
-      color: #ffffff;
-      font-weight: 500;
-      margin: 10px;
-    }
 
-    .navbar .nav-link:hover {
-      color: #ff4757;
-    }
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            margin:10px;
+            
+        }
 
-    .navbar-toggler {
-      border-color: rgba(255, 255, 255, 0.1);
-    }
+        .navbar .nav-link:hover {
+            color: #ff4757;
+        }
 
-    .navbar-brand {
-      font-weight: 500;
-      color: #ffffff;
-    }
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+            
+            
+        
+    
+        }
+        
 
-    .icon-menu {
-      --gap: 5px;
-      --height-bar: 2.5px;
-      --pos-y-bar-one: 0;
-      --pos-y-bar-three: 0;
-      --scale-bar: 1;
-      --rotate-bar-one: 0;
-      --rotate-bar-three: 0;
-      width: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap);
-      cursor: pointer;
-      position: relative;
-      margin-top: 5px;
-      margin-right: 10px;
-      display: none;
-    }
+        .navbar-brand {
+            font-weight: 500;
+            color: #ffffff;
+            
+        }
+        
 
-    @media (max-width: 767px) {
-      .icon-menu {
-        display: flex;
-      }
-    }
-    @media (min-width: 768px) and (max-width: 1024px) {
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  margin-top:5px;
+  margin-right: 10px;
+  display:none;
+}
+@media (max-width: 767px) {
+            .icon-menu {
+                display: flex; 
+            }
+        }
+       
+.bar {
+  position: relative;
+  height: 3.2px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
     .icon-menu{
         display: block;
         
@@ -123,15 +174,6 @@
   --rotate-bar-three: -45deg;
 }
     }
-
-    .bar {
-      position: relative;
-      height: 3.2px;
-      width: 100%;
-      border-radius: .5rem;
-      background-color: #d6d6d6;
-    }
-
     .card {
         backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -171,50 +213,53 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <img src="/static/flagbrand.png" style="height:25px;width:120px;margin-top: 7px;">
-    <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox">
-    <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <img src="/static/flagbrand.png" style="height:25px;width:120px;margin-top: 7px;">
+  <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
+  <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
       <div class="bar bar--1"></div>
       <div class="bar bar--2"></div>
       <div class="bar bar--3"></div>
-    </label>
+  </label>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item ml-4"><a class="nav-link" href="">Home</a></li>
-        <li class="nav-item ml-4"><a class="nav-link" href="">Courses</a></li>
-        <li class="nav-item ml-4"><a class="nav-link" href="">Contact Us</a></li>
-        <li class="nav-item ml-4"><a class="nav-link" href="">Register</a></li>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto" >
+          <li class="nav-item ml-4"><a class="nav-link" href="">Why Germany</a></li>
+          <li class="nav-item ml-4"><a class="nav-link" href="">Courses</a></li>
+          <li class="nav-item ml-4"><a class="nav-link" href="">Contact Us</a></li>
+          <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li>
+          <li class="nav-item ml-4"><a class="nav-link" href="">Register</a></li>
+
       </ul>
-    </div>
-  </nav>
+  </div>
+</nav>
+<script>
+  // Navbar background color change on scroll or menu toggle
+function updateNavbarBackground() {
+const navbar = document.querySelector(".navbar");
+const menuCheckbox = document.querySelector("#check-icon");
 
-  <script>
-    // Navbar background color change on scroll or menu toggle
-    function updateNavbarBackground() {
-      const navbar = document.querySelector(".navbar");
-      const menuCheckbox = document.querySelector("#check-icon");
+if (menuCheckbox.checked || window.scrollY > 50) {
+  navbar.style.background = "rgba(0, 0, 0, 0.363)"; // Light transparent background for contrast
+  navbar.style.backdropFilter = "blur(10px)";
+  navbar.style.webkitBackdropFilter = "blur(10px)";
+  navbar.style.transition = "background 0.3s ease, backdrop-filter 0.3s ease"; // Smooth transition
+} else {
+  navbar.style.background = "transparent";
+  navbar.style.backdropFilter = "none";
+  navbar.style.webkitBackdropFilter = "none";
+}
+}
 
-      if (menuCheckbox.checked || window.scrollY > 50) {
-        navbar.style.background = "rgba(0, 0, 0, 0.363)";
-        navbar.style.backdropFilter = "blur(10px)";
-        navbar.style.webkitBackdropFilter = "blur(10px)";
-        navbar.style.transition = "background 0.3s ease, backdrop-filter 0.3s ease";
-      } else {
-        navbar.style.background = "transparent";
-        navbar.style.backdropFilter = "none";
-        navbar.style.webkitBackdropFilter = "none";
-      }
-    }
+// Attach scroll event listener
+window.addEventListener("scroll", updateNavbarBackground);
 
-    // Attach scroll event listener
-    window.addEventListener("scroll", updateNavbarBackground);
+// Attach toggle menu listener
+document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
 
-    // Attach toggle menu listener
-    document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
-  </script>
+</script>
+
 
   <h2 style="margin-top: 100px;">German Language Levels & Their Career Scope</h2>
   <br>
@@ -317,7 +362,16 @@
   <a href="">
   <button class="btn"  style="width:200px;height:50px;border:1px solid white;border-radius: 30px;color:white;
   background: linear-gradient(23deg, rgb(0, 0, 0) 0%, rgba(36,33,33,1) 48%, rgb(19, 18, 18) 100%);font-weight: bold;">
-    WHY FLAG??
+    WHY FLAG <i 
+    class="fa-solid fa-share" 
+    style="
+      font-weight: bold;
+      margin-left: 8px;
+      margin-bottom: 4px;
+      color: #fff;
+      
+    "
+  ></i>
   </button>
 </a>
 </div>
