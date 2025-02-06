@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Germany??</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+ @font-face {
+            font-family: myfont;
+            src: url(/static/02_APompadourTextSample.ttf);
+        }
+
+        body {
+      background: linear-gradient(360deg, rgb(37, 2, 7) 0%, rgba(10,3,3,0.93) 85%, rgb(141, 21, 21) 100%);
+      color: white;
+      font-family:myfont;
+      letter-spacing: 1px;
+      
+      
+    }
+
+    .navbar {
+      background: transparent;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            margin:10px;
+            
+        }
+
+        .navbar .nav-link:hover {
+            color: #ff4757;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+            
+            
+        
+    
+        }
+        
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #ffffff;
+            
+        }
+        
+
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  margin-top:5px;
+  margin-right: 10px;
+  display:none;
+}
+@media (max-width: 767px) {
+            .icon-menu {
+                display: flex; 
+            }
+        }
+       
+.bar {
+  position: relative;
+  height: 3.2px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .icon-menu{
+        display: block;
+        
+        
+    }
+    .bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+  margin:2px;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+    }
+
+    .card {
+      background-color: black;
+      border: 1px solid rgb(131, 39, 39);
+      border-top-left-radius:30px;
+      border-bottom-right-radius: 30px;
+      height:100%;
+      
+    }
+    .card-title {
+      color: #f8f9fa;
+    }
+    .upload-header {
+      padding: 2rem 0;
+      text-align: center;
+      background-color: #000;
+    }
+    .upload-header input {
+      margin-top: 1rem;
+    }
+    @media (max-width: 767px) {
+      header {
+        height: 300px;
+        
+
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <img src="/static/flagbrand.png" style="height:25px;width:120px;margin-top: 7px;">
+    <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
+    <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+        <div class="bar bar--1"></div>
+        <div class="bar bar--2"></div>
+        <div class="bar bar--3"></div>
+    </label>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto" >
+            <li class="nav-item ml-4"><a class="nav-link" href="">Services</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="">Courses</a></li>
+            
+            <li class="nav-item ml-4"><a class="nav-link" href="">Contact Us</a></li>
+            <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="">Register</a></li>
+
+        </ul>
+    </div>
+</nav>
+<script>
+    // Navbar background color change on scroll or menu toggle
+function updateNavbarBackground() {
+  const navbar = document.querySelector(".navbar");
+  const menuCheckbox = document.querySelector("#check-icon");
+
+  if (menuCheckbox.checked || window.scrollY > 50) {
+    navbar.style.background = "rgba(0, 0, 0, 0.363)"; // Light transparent background for contrast
+    navbar.style.backdropFilter = "blur(10px)";
+    navbar.style.webkitBackdropFilter = "blur(10px)";
+    navbar.style.transition = "background 0.3s ease, backdrop-filter 0.3s ease"; // Smooth transition
+  } else {
+    navbar.style.background = "transparent";
+    navbar.style.backdropFilter = "none";
+    navbar.style.webkitBackdropFilter = "none";
+  }
+}
+
+// Attach scroll event listener
+window.addEventListener("scroll", updateNavbarBackground);
+
+// Attach toggle menu listener
+document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
+
+  </script>
+  <h1 class="text-center" style="margin-top: 8rem;font-weight: bold;font-size: 2rem;"> Why Choose Germany: Culture, Career, Education, and Immigration Opportunities</h1>
+  <div style="display: flex;justify-content: center;padding:50px;">
+<p class="text-center" style="font-weight: bold;">Germany is not just a country; it is a land of opportunity, culture, 
+    and innovation. Known for its strong economy, high-quality education, and welcoming environment, Germany offers 
+    numerous benefits for immigrants seeking to start a new life or further their careers. Whether you are looking 
+    for world-class educational options, career growth, or a high standard of living, 
+    Germany has it all. This page outlines why Germany stands out as an ideal destination for 
+    immigrants, with a focus on the country’s 
+    culture, skills development, lifestyle, career options, and immigration pathways.
+    </p></div>
+    <h1 class="text-center" style="margin-top: 1rem;font-weight: bold;font-size: 2rem;">A Rich and Diverse Culture</h1>
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://i.pinimg.com/736x/d0/13/a3/d013a3a9a947eb4d4a6cf342fa2c618d.jpg" style="width:60%;border-radius: 15px;margin:20px;">
+    </div>
+    <div style="display: flex;justify-content: center;padding:50px;margin-top: -30px;">
+  <p class="text-center" style="font-weight: bold;">Germany is a country steeped in history, culture, and innovation.
+     From the renowned works of classical composers like Beethoven and Bach to the cutting-edge technologies driving modern 
+     industries, Germany offers a rich cultural landscape. Major cities like Berlin, Munich, and Hamburg serve as cultural 
+     epicentres with world-class museums, theatres, galleries, and a vibrant music and arts scene.
+    </p></div>
+    
+    <div style="display: flex;justify-content: center;padding:50px;">
+    <p class="text-center" style="font-weight: bold;margin-top: -70px;">One of Germany’s most impressive cultural attributes is its 
+        focus on diversity and inclusion. The country is home to a wide range of cultural festivals, 
+        such as Oktoberfest, and Christmas markets, which are deeply ingrained in the national identity. 
+        As an immigrant, you will find an accepting and multicultural environment 
+        where you can celebrate your own culture while embracing the local traditions.</p>
+    </div>
+
+    <h1 class="text-center" style="margin-top: 1rem;font-weight: bold;font-size: 2rem;">Education and Career Opportunities in Germany</h1>
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://i.pinimg.com/736x/32/61/1a/32611a28ed0bc73a887df832d503663c.jpg" style="width:60%;border-radius: 15px;margin:20px;">
+    </div>
+  
+    <div style="display: flex;justify-content: center;padding:50px;">
+        <p class="text-center" style="font-weight: bold;">Germany is recognised globally for its high educational standards. With a range of educational institutions offering specialised courses in engineering, medicine, technology, and business, Germany attracts students from all over the world. Higher education in Germany is often tuition-free or available at low costs, making it an accessible option for international students. Some of the world’s most prestigious universities, including Heidelberg University, Technical University of Munich, and the University of Freiburg, offer a variety of programmes in English and German.
+            Moreover, Germany’s vocational education system is also highly regarded, with Ausbildung (vocational training) programmes providing hands-on experience and a direct pathway into the workforce. This dual education system allows students to combine academic learning with practical skills, making graduates highly sought after by employers in various industries. For immigrants, participating in an Ausbildung programme can be an excellent way to gain relevant skills and establish a career in Germany.
+            </p>
+        </div>
+
+
+        <h1 class="text-center" style="margin-top: 1rem;font-weight: bold;font-size: 2rem;">Thriving Job Market and Career Pathways
+        </h1>
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://i.pinimg.com/736x/6e/00/5b/6e005bf089af0af54197a138f78906f9.jpg" style="width:60%;border-radius: 15px;margin:20px;">
+    </div>
+  
+    <div style="display: flex;justify-content: center;padding:50px;">
+        <p class="text-center" style="font-weight: bold;">Germany has one of the strongest economies in the world, and its labour market is always in need of skilled professionals. Fields such as engineering, information technology, healthcare, and finance are among the top industries with high demand for talent. Immigrants with the right qualifications, especially in these areas, have many opportunities to find work in Germany.
+            The German government offers various programmes for skilled workers, such as the Blue Card, a residence permit for non-EU nationals with higher education or vocational qualifications. This card allows qualified immigrants to live and work in Germany with attractive salaries and benefits. The country’s skilled labour shortage, particularly in sectors like technology, healthcare, and engineering, makes it easier for highly skilled professionals to find long-term career opportunities.
+            </p>
+        </div>
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-3">
+                        <div class="single-cta">
+                            
+                            <div class="cta-text" style="margin-top: 20px;">
+                                
+                                <h4>Find us</h4>
+                                <span>Foreign Languages Academy Gurukulam(F.L.A.G.)
+                                  Near Nattakom Govt. College,
+                                  Nattakom P.O.,
+                                  Kottayam<br>Pincode : 68 60 13</span> 
+                                                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-4 col-md-4 mb-3">
+                        <div class="single-cta">
+                           
+                            <div class="cta-text" style="margin-top: 20px;">
+                                <h4>Call us</h4>
+                                <span>+91 907 2222 911 ,</span>
+                                <span>+91 907 2222 933</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            
+                            <div class="cta-text" style="margin-top: 20px;">
+                                <h4>Mail us</h4>
+                                <span>info@flaggurukulam.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                    
+                            <div class="footer-text" style="margin-top: 30px;">
+                                <p>The best German language institute In Kochi, Kottayam. F.L.A.G. Foreign Languages Academy Gurukulam, contrarily, has an inclusive training program that focuses on academic performance academically and cultural integration.</p>
+                            </div>
+                            <div class="footer-social-icon mb-4" style="margin-top: 30px;">
+                                <span>Follow us</span>
+                                <a href="https://www.facebook.com/lifeplannerstudies"><i class="fab fa-facebook-f text-light" style="background: rgb(170, 22, 22);"></i></a>
+                                <a href="https://x.com/i/flow/login?redirect_after_login=%2Flifeplannerktm"><i class="fab fa-twitter text-light" style="background: rgb(170, 22, 22);"></i></a>
+                                <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-instagram text-light" style="background: rgb(170, 22, 22);"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;margin-top: 30px;">
+                        <div class="footer-widget" >
+                            <div class="footer-widget-heading" style="margin-top: 30px;">
+                                <h4>Top Links</h4>
+                            </div>
+                            <ul>
+                                <li><a href="">Home</a></li>
+                                <li><a href="">Offers</a></li>
+                                <li><a href="">Courses</a></li>
+                                <li><a href="">Contact Us</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                        <img src="/static/flagbrand.png" style="width:280px;margin-top: 30px;">
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-area">
+                <div class="container">
+                    <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                        <div class="col-xl-6 col-lg-6 text-center ">
+                            <div class="copyright-text" >
+                                <p>Copyright &copy; 2025, All Right Reserved flaggurukulam.com</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <style>
+        ul {
+        margin: 0px;
+        padding: 0px;
+        
+    }
+    .footer-section {
+    background: transparent;
+      position: relative;
+      margin-top: 50px;
+      
+    }
+    .footer-cta {
+      border-bottom: 1px solid #373636;
+    }
+    .single-cta i {
+      color: white;
+      font-size: 30px;
+      float: left;
+      margin-top: 8px;
+    }
+    .cta-text {
+      padding-left: 15px;
+      display: inline-block;
+    }
+    .cta-text h4 {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .cta-text span {
+      color: #ffffff;
+      font-size: 15px;
+    }
+    .footer-content {
+      position: relative;
+      z-index: 2;
+    }
+    .footer-pattern img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 330px;
+      background-size: cover;
+      background-position: 100% 100%;
+    }
+    .footer-logo {
+      margin-bottom: 30px;
+    }
+    .footer-logo img {
+        max-width: 200px;
+    }
+    .footer-text p {
+      margin-bottom: 14px;
+      font-size: 14px;
+          color: white;
+      line-height: 28px;
+    }
+    .footer-social-icon span {
+      color: #ffffff;
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 20px;
+    }
+    .footer-social-icon a {
+      color: #fff;
+      font-size: 16px;
+      margin-right: 15px;
+    }
+    .footer-social-icon i {
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      line-height: 38px;
+      border-radius: 50%;
+    }
+    .facebook-bg{
+      background: #3B5998;
+    }
+    .twitter-bg{
+      background: #55ACEE;
+    }
+    .google-bg{
+      background: #DD4B39;
+    }
+    .footer-widget-heading h4 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .footer-widget-heading h4::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      height: 2px;
+      width: 50px;
+      background: #ff5e14;
+    }
+    .footer-widget ul li {
+      display: inline-block;
+      float: left;
+      width: 50%;
+      margin-bottom: 12px;
+    }
+    .footer-widget ul li a:hover{
+      color: #ffffff;
+    }
+    .footer-widget ul li a {
+      color: #ffffff;
+      text-transform: capitalize;
+    }
+    .subscribe-form {
+      position: relative;
+      overflow: hidden;
+    }
+    .subscribe-form input {
+      width: 100%;
+      padding: 14px 28px;
+      background: #2E2E2E;
+      border: 1px solid #2E2E2E;
+      color: #fff;
+    }
+    .subscribe-form button {
+        position: absolute;
+        right: 0;
+        background: #ff5e14;
+        padding: 13px 20px;
+        border: 1px solid #ff5e14;
+        top: 0;
+    }
+    .subscribe-form button i {
+      color: #fff;
+      font-size: 22px;
+      transform: rotate(-6deg);
+    }
+    .copyright-area{
+        
+      padding: 25px 0;
+      display:flex;
+    }
+    .copyright-text p {
+      margin: 0;
+      font-size: 14px;
+      color: #ffffff;
+    }
+    .copyright-text p a{
+      color: #ffffff;
+    }
+    .footer-menu li {
+      display: inline-block;
+      margin-left: 20px;
+    }
+    .footer-menu li:hover a{
+      color: #ffffff;
+    }
+    .footer-menu li a {
+      font-size: 14px;
+      color: #878787;
+    }
+    </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Include Swiper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

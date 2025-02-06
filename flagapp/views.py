@@ -25,3 +25,6 @@ def levels(request):
 
 def whyflag(request):
     return render (request,"whyflag.html")   
+
+def germany(request):
+    return render (request,"germany.html")
