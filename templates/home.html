@@ -223,11 +223,11 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto" >
-            <li class="nav-item ml-4"><a class="nav-link" href="">Why Germany</a></li>
-            <li class="nav-item ml-4"><a class="nav-link" href="">Courses</a></li>
-            <li class="nav-item ml-4"><a class="nav-link" href="">Contact Us</a></li>
-            <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li>
-            <li class="nav-item ml-4"><a class="nav-link" href="">Register</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="{% url 'flagapp:germany' %}">Why Germany</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="{% url 'flagapp:levels' %}">Levels</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="tel:+918594060107">Contact Us</a></li>
+            <li class="nav-item ml-4 locationLink"><a class="nav-link" href="https://maps.app.goo.gl/T8Qqgm6M2FGTA1qw7" >Location</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="{% url 'flagapp:registeration' %}">Register</a></li>
 
         </ul>
     </div>
@@ -350,7 +350,7 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     <!-- Carousel Cell 1 -->
     <div class="carousel-cell" style="background-image: url(/static/german3.jpeg);">
         <div class="carousel-info">
-            <h4>Online Classes</h4>
+            <h4>Courses</h4>
             <a href="{% url 'flagapp:registeration' %}">
             <button class="carousel-button">Register</button>
             </a>
@@ -361,7 +361,9 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     <div class="carousel-cell" style="background-image: url(/static/loc3.jpeg);">
         <div class="carousel-info">
             <h4>Location</h4>
+            <a href="https://maps.app.goo.gl/SsahKw4iaRwHwJ2G6">
             <button class="carousel-button">View</button>
+          </a>
         </div>
     </div>
 
@@ -369,7 +371,9 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     <div class="carousel-cell" style="background-image: url(/static/students3.jpeg);">
         <div class="carousel-info">
           <h4>Our Academy</h4>
+          <a href="{% url 'flagapp:whyflag' %}">
           <button class="carousel-button">View </button>
+        </a>
         </div>
     </div>
 </div>
@@ -852,7 +856,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
   }
 </style>
 
-<div style="padding: 20px;margin-top: 110px;">
+<div style="padding: 20px;margin-top: 120px;">
   <div class="about-us-section">
     <h2 class="section-title" style="font-weight: bold;">Career & Ausbildung Opportunities
     </h2>
@@ -932,7 +936,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
 
 </style>
 <div style="display:flex;justify-content: center;margin-top: 30px;margin-bottom: 50px;">
-  <!-- From Uiverse.io by zanina-yassine --> 
+<a href="{% url 'flagapp:germany' %}">
 <button class="button1" style="font-weight: bold;">Why Germany
 
   <i 
@@ -947,6 +951,7 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
             ></i>
 
 </button>
+</a>
 
 </div>
 
@@ -1256,14 +1261,16 @@ background: linear-gradient(90deg, rgba(36,0,5,1) 0%, rgba(133,41,37,0.933210784
             <div class="container">
                 <div class="row"  style="display:flex;justify-content: center;align-items: center;">
                     <div class="col-xl-6 col-lg-6 text-center ">
-                        <div class="copyright-text" >
-                            <p>Copyright &copy; 2025, All Right Reserved flaggurukulam.com</p>
-                        </div>
+                        
                     </div>
                     
                 </div>
+                <div class="copyright-text" >
+                  <p>Copyright &copy; 2025, All Right Reserved flaggurukulam.com</p>
+              </div>
             </div>
         </div>
+        
     </div>
     
 </footer>

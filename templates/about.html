@@ -219,16 +219,15 @@
     </label>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto" >
-            <li class="nav-item ml-4"><a class="nav-link" href="">Services</a></li>
-            <li class="nav-item ml-4"><a class="nav-link" href="">Courses</a></li>
-            
-            <li class="nav-item ml-4"><a class="nav-link" href="">Contact Us</a></li>
-            <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li>
-            <li class="nav-item ml-4"><a class="nav-link" href="">Register</a></li>
+      <ul class="navbar-nav ml-auto" >
+          <li class="nav-item ml-4"><a class="nav-link" href="{% url 'flagapp:whyflag' %}">Why Flag</a></li>
+          <li class="nav-item ml-4"><a class="nav-link" href="{% url 'flagapp:levels' %}">Levels</a></li>
+          <li class="nav-item ml-4"><a class="nav-link" href="tel:+918594060107">Contact Us</a></li>
+          <li class="nav-item ml-4 locationLink"><a class="nav-link" href="https://maps.app.goo.gl/T8Qqgm6M2FGTA1qw7" >Location</a></li>
+          <li class="nav-item ml-4"><a class="nav-link" href="{% url 'flagapp:registeration' %}">Register</a></li>
 
-        </ul>
-    </div>
+      </ul>
+  </div>
 </nav>
 <script>
     // Navbar background color change on scroll or menu toggle
@@ -268,6 +267,82 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
   <p class="text-center" style="font-weight: bold;">At Foreign Languages Academy Gurukulam (F.L.A.G.), our vision is to be a global leader in language education, empowering individuals to become global citizens with strong multi-linguistic skills that eliminate the geographical border. 
     By fostering linguistic excellence and cultural understanding, we aim to equip learners with the skills needed to embrace global opportunities and thrive in an interconnected world. Through innovative teaching methods, personalised support, and practical skill-building, we are dedicated to shaping a future where language becomes a key to success.
     </p></div>
+
+
+    <style>
+      .button1 {
+        min-width: 120px;
+      
+        position: relative;
+        cursor: pointer;
+      
+        padding: 12px 17px;
+        border: 1px solid rgb(194, 55, 55);
+        border-radius: 30px;
+      
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        background: radial-gradient(
+          ellipse at bottom,
+          rgb(185, 73, 73) 0%,
+          rgb(53, 19, 19) 45%
+        );
+      
+        color: rgb(255, 255, 255);
+      
+        transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+      }
+      
+      .button1::before {
+        content: "";
+        width: 70%;
+        height: 1px;
+      
+        position: absolute;
+        bottom: 0;
+        left: 15%;
+      
+        background: rgb(255, 255, 255);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        opacity: 0.2;
+      
+        transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+      }
+      
+      .button1:hover {
+        color: rgb(255, 255, 255, 1);
+        transform: scale(1.1) translateY(-3px);
+      }
+      
+      .button1:hover::before {
+        opacity: 1;
+      }
+      
+      </style>
+      <div style="display:flex;justify-content: center;margin-top: 30px;margin-bottom: 50px;">
+        <a href="{% url 'flagapp:whyflag' %}" style="text-decoration: none;color:white;">
+      <button class="button1" style="font-weight: bold;">Why Flag
+        <i 
+        class="fa-solid fa-share" 
+        style="
+          font-weight: bold;
+          margin-left: 6px;
+          margin-bottom: 2px;
+          color: #fff;
+          
+        "
+      ></i>
+     
+        
+      
+      </button>
+    </a>
+      
+      </div>
     <footer class="footer-section">
         <div class="container">
             <div class="footer-cta pt-5 pb-5">
