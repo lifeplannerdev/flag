@@ -26,7 +26,7 @@ def registeration(request):
         email = request.POST.get("emailAddress")
         phone = request.POST.get("contact")
         course = request.POST.get("course")
-        amount = 600 * 100  # Razorpay accepts amount in paisa (600 INR = 60000 paisa)
+        amount = int(request.POST.get("amount")) * 100  # Convert to paisa
 
         # Create Razorpay order
         order_data = {
@@ -42,7 +42,7 @@ def registeration(request):
             email=email,
             phone=phone,
             course=course,
-            amount=600,
+            amount=amount // 100,  # Convert back to INR for storage
             payment_id=order['id']
         )
         registration.save()
@@ -59,6 +59,7 @@ def registeration(request):
         })
 
     return render(request, "registration.html")
+
 
 
 from django.views.decorators.csrf import csrf_exempt

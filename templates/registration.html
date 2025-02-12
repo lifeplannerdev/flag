@@ -266,32 +266,42 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
           <form id="paymentForm" method="POST" action="">
             {% csrf_token %}
             <div class="form-group mb-3">
-              <label for="fullName" style="color:white;">Full Name</label>
-              <input type="text" class="form-control" id="fullName" style="border-radius: 30px;" placeholder="Enter your full name" required>
+              
+              <input type="text" class="form-control" id="fullName" style="border-radius: 5px;" placeholder="Enter your full name" required>
             </div>
             <div class="form-group mb-3">
-              <label for="emailAddress" style="color:white;">Email Address</label>
-              <input type="email" class="form-control" id="emailAddress" style="border-radius: 30px;" placeholder="Enter your email" required>
+              
+              <input type="email" class="form-control" id="emailAddress" style="border-radius: 5px;" placeholder="Enter your email" required>
             </div>
             
             <div class="form-group mb-3">
-              <label for="contact" style="color:white;">Contact Number:</label>
-              <input type="tel" class="form-control" id="contact" style="border-radius: 30px;" placeholder="Enter your contact number" required>
+              
+              <input type="tel" class="form-control" id="contact" style="border-radius: 5px;" placeholder="Enter your contact number" required>
             </div>
             <div class="form-group mb-3">
-              <label for="course" style="color:white;">Course</label>
-              <input type="text" class="form-control" id="course" style="border-radius: 30px;" placeholder="Enter the course" required>
+              <label for="course" style="color:white;">Select Course:</label>
+              <select class="form-control" id="course" style="border-radius: 5px;" required>
+                <option value="German Online Training" data-amount="60800">German Online Training</option>
+                <option value="German On-campus" data-amount="91500">German On-campus</option>
+              </select>
             </div>
             <div class="form-group mb-4">
               <label for="amount" style="color:white;">Amount:</label>
-              <input type="text" class="form-control" id="amount" value="₹600" style="border-radius: 30px;" readonly>
+              <input type="text" class="form-control" id="amount" value="₹70800" style="border-radius: 5px;" readonly>
             </div>
-            <button type="button" id="payButton" class="btn btn-danger w-100" style="border-radius: 30px;">Submit Payment</button>
+            <button type="button" id="payButton" class="btn btn-danger w-100" style="border-radius: 5px;">Submit Payment</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    document.getElementById("course").addEventListener("change", function() {
+      let selectedOption = this.options[this.selectedIndex];
+      let amount = selectedOption.getAttribute("data-amount");
+      document.getElementById("amount").value = "₹" + amount;
+    });
+  </script>
   
   <script>
     const fullName = document.getElementById('fullName');
@@ -325,71 +335,71 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
-    document.getElementById("payButton").onclick = function(e) {
-      e.preventDefault();
-  
-      let fullName = document.getElementById("fullName").value;
-      let emailAddress = document.getElementById("emailAddress").value;
-      let contact = document.getElementById("contact").value;
-      let course = document.getElementById("course").value;
-  
-      if (!fullName || !emailAddress || !contact || !course) {
-        alert("Please fill in all details before proceeding.");
-        return;
-      }
-  
-      fetch("{% url 'flagapp:registeration' %}", {
-        method: "POST",
-        headers: { "X-CSRFToken": "{{ csrf_token }}" },
-        body: new URLSearchParams({
-          fullName: fullName,
-          emailAddress: emailAddress,
-          contact: contact,
-          course: course,
-        }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        var options = {
-          "key": data.key,
-          "amount": data.amount,
-          "currency": data.currency,
-          "name": "Life Planner",
-          "description": "Course Registration Fee",
-          "order_id": data.order_id,
-          "handler": function (response) {
-            // Call backend to update payment status
-            fetch("{% url 'flagapp:payment_success' %}", {
-              method: "POST",
-              headers: { "X-CSRFToken": "{{ csrf_token }}" },
-              body: new URLSearchParams({
-                payment_id: response.razorpay_payment_id,
-                order_id: response.razorpay_order_id,
-              }),
-            })
-            .then(res => res.json())
-            .then(data => {
-              if (data.status === "success") {
-                // ✅ Redirect directly without alert
-                window.location.href = "{% url 'flagapp:success_page' %}";
-              }
-            });
-          },
-          "prefill": {
-            "name": fullName,
-            "email": emailAddress,
-            "contact": contact
-          },
-          "theme": { "color": "#F37254" }
-        };
-  
-        var rzp = new Razorpay(options);
-        rzp.open();
-      });
-    };
-  </script>
-  
+    document.getElementById("payButton").onclick = function (e) {
+  e.preventDefault();
 
+  let fullName = document.getElementById("fullName").value;
+  let emailAddress = document.getElementById("emailAddress").value;
+  let contact = document.getElementById("contact").value;
+  let course = document.getElementById("course");
+  let selectedOption = course.options[course.selectedIndex];
+  let amount = selectedOption.getAttribute("data-amount"); // Get amount from selected option
+
+  if (!fullName || !emailAddress || !contact || !course.value) {
+    alert("Please fill in all details before proceeding.");
+    return;
+  }
+
+  fetch("{% url 'flagapp:registeration' %}", {
+    method: "POST",
+    headers: { "X-CSRFToken": "{{ csrf_token }}" },
+    body: new URLSearchParams({
+      fullName: fullName,
+      emailAddress: emailAddress,
+      contact: contact,
+      course: course.value,
+      amount: amount // Pass the correct amount
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    var options = {
+      "key": data.key,
+      "amount": data.amount,
+      "currency": data.currency,
+      "name": "Life Planner",
+      "description": "Course Registration Fee",
+      "order_id": data.order_id,
+      "handler": function (response) {
+        fetch("{% url 'flagapp:payment_success' %}", {
+          method: "POST",
+          headers: { "X-CSRFToken": "{{ csrf_token }}" },
+          body: new URLSearchParams({
+            payment_id: response.razorpay_payment_id,
+            order_id: response.razorpay_order_id,
+          }),
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === "success") {
+            window.location.href = "{% url 'flagapp:success_page' %}";
+          }
+        });
+      },
+      "prefill": {
+        "name": fullName,
+        "email": emailAddress,
+        "contact": contact
+      },
+      "theme": { "color": "#F37254" }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+  });
+};
+
+  </script>
   
 
 
