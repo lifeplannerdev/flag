@@ -32,6 +32,7 @@
       justify-content: space-between;
       align-items: center;
       position: fixed;
+      
       top: 0;
       width: 100%;
       z-index: 999;
@@ -184,7 +185,8 @@
       border: 1px solid rgb(131, 39, 39);
       border-top-left-radius:30px;
       border-bottom-right-radius: 30px;
-      height:100%;
+      height:90%;
+      
       
     }
     .card-title {
@@ -254,13 +256,13 @@ window.addEventListener("scroll", updateNavbarBackground);
 document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
 
   </script>
-<h1 class="text-center" style="margin-top: 120px; font-weight: bold;">Register Here ...</h1>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8 col-12">
-        <div class="card p-4" style="backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); background-color: rgba(17, 25, 40, 0.75);">
-          <h2 class="text-center mb-4 text-white">Payment Form</h2>
+        <div class="card p-4" style="backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); background-color: rgba(17, 25, 40, 0.75);
+        margin-top: 70px;">
+          <h2 class="text-center mb-4 text-white">Register Here..</h2>
           <form id="paymentForm" method="POST" action="">
             {% csrf_token %}
             <div class="form-group mb-3">
@@ -271,15 +273,20 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
               <label for="emailAddress" style="color:white;">Email Address</label>
               <input type="email" class="form-control" id="emailAddress" style="border-radius: 30px;" placeholder="Enter your email" required>
             </div>
+            
             <div class="form-group mb-3">
               <label for="contact" style="color:white;">Contact Number:</label>
               <input type="tel" class="form-control" id="contact" style="border-radius: 30px;" placeholder="Enter your contact number" required>
+            </div>
+            <div class="form-group mb-3">
+              <label for="course" style="color:white;">Course</label>
+              <input type="text" class="form-control" id="course" style="border-radius: 30px;" placeholder="Enter the course" required>
             </div>
             <div class="form-group mb-4">
               <label for="amount" style="color:white;">Amount:</label>
               <input type="text" class="form-control" id="amount" value="₹600" style="border-radius: 30px;" readonly>
             </div>
-            <button type="submit" id="submitButton" class="btn btn-danger w-100" style="border-radius: 30px;" disabled>Submit Payment</button>
+            <button type="button" id="payButton" class="btn btn-danger w-100" style="border-radius: 30px;">Submit Payment</button>
           </form>
         </div>
       </div>
@@ -316,7 +323,74 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
   
 
 
-
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    document.getElementById("payButton").onclick = function(e) {
+      e.preventDefault();
+  
+      let fullName = document.getElementById("fullName").value;
+      let emailAddress = document.getElementById("emailAddress").value;
+      let contact = document.getElementById("contact").value;
+      let course = document.getElementById("course").value;
+  
+      if (!fullName || !emailAddress || !contact || !course) {
+        alert("Please fill in all details before proceeding.");
+        return;
+      }
+  
+      fetch("{% url 'flagapp:registeration' %}", {
+        method: "POST",
+        headers: { "X-CSRFToken": "{{ csrf_token }}" },
+        body: new URLSearchParams({
+          fullName: fullName,
+          emailAddress: emailAddress,
+          contact: contact,
+          course: course,
+        }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        var options = {
+          "key": data.key,
+          "amount": data.amount,
+          "currency": data.currency,
+          "name": "Life Planner",
+          "description": "Course Registration Fee",
+          "order_id": data.order_id,
+          "handler": function (response) {
+            // Call backend to update payment status
+            fetch("{% url 'flagapp:payment_success' %}", {
+              method: "POST",
+              headers: { "X-CSRFToken": "{{ csrf_token }}" },
+              body: new URLSearchParams({
+                payment_id: response.razorpay_payment_id,
+                order_id: response.razorpay_order_id,
+              }),
+            })
+            .then(res => res.json())
+            .then(data => {
+              if (data.status === "success") {
+                alert("Payment successful!");
+                window.location.href = "{% url 'flagapp:success_page' %}";
+              } else {
+                alert("Payment failed. Please try again.");
+              }
+            });
+          },
+          "prefill": {
+            "name": fullName,
+            "email": emailAddress,
+            "contact": contact
+          },
+          "theme": { "color": "#F37254" }
+        };
+  
+        var rzp = new Razorpay(options);
+        rzp.open();
+      });
+    };
+  </script>
+  
 
   
 
