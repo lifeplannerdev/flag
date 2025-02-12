@@ -370,10 +370,8 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
             .then(res => res.json())
             .then(data => {
               if (data.status === "success") {
-                alert("Payment successful!");
+                // ✅ Redirect directly without alert
                 window.location.href = "{% url 'flagapp:success_page' %}";
-              } else {
-                alert("Payment failed. Please try again.");
               }
             });
           },
